@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Math Practice & Games</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+
+  body {
+    margin: 0; font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: #fff;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    min-height: 100vh; padding: 1rem;
+    overflow-x: hidden;
+  }
+
+  /* Math quiz container */
+  #mathContainer {
+    padding: 2rem 3rem;
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+  }
+
+  #mathContainer h1 {
+    font-weight: 600;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    text-shadow: 0 2px 6px rgba(0,0,0,0.3);
+  }
+
+  #problem {
+    font-size: 1.8rem;
+    margin: 1rem 0 2rem;
+  }
+
+  input[type="text"] {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    font-size: 1.2rem;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    color: #222;
+  }
+
+  input[type="text"]:focus {
+    box-shadow: inset 0 0 8px #aabbff;
+  }
+
+  #feedback {
+    margin-top: 1rem;
+    height: 24px;
+    font-weight: 600;
+  }
+
+  /* Game Hub Container - big curved rectangle with slight white transparency */
+  #gameHub {
+    color: #fff;
+    min-height: 100vh;
+    padding: 2rem 3rem;
+    box-sizing: border-box;
+    display: none; /* hidden initially */
+    flex-direction: column;
+    align-items: center;
+    background: rgba(255 255 255 / 0.12);
+    border-radius: 32px;
+    max-width: 540px;
+    width: 90vw;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  }
+
+  #gameHub h1 {
+    font-weight: 600;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    text-shadow: 0 2px 6px rgba(0,0,0,0.4);
+  }
+
+  ul#gameList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+  }
+
+  /* Styled game list items */
+  ul#gameList li {
+  padding: 1rem 1.8rem;     /* thinner vertically, wider horizontally */
+  margin-bottom: 1.8rem;      /* more space between boxes */
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 1.3rem;
+  font-weight: 600;
+  user-select: none;
+  text-align: center;
+  color: #fff;
+  background: rgba(255 255 255 / 0.15); /* keep the same transparency */
+  transition: transform 0.3s ease;       /* no background change on hover */
+}
+
+  ul#gameList li:hover {
+    background: rgba(255 255 255 / 0.35);
+    transform: translateX(6px);
+  }
+
+  iframe {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw;
+    height: 100vh;
+    border: none;
+    z-index: 20;
+    background: #000;
+  }
+
+  /* Back button - quarter circle in top-left corner, no arrow */
+  #backBtn {
+    position: fixed;
+    top: -20px;
+    left: -20px;
+    width: 60px;
+    height: 60px;
+    background: rgba(255 255 255 / 0.15);
+    border-radius: 0 0 100% 0;
+    cursor: pointer;
+    z-index: 30;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    transition: background-color 0.3s ease;
+    display: none; /* hidden by default */
+  }
+  #backBtn:hover {
+    background: rgba(255 255 255 / 0.35);
+  }
+</style>
+</head>
+<body>
+
+<!-- Math Quiz -->
+<div id="mathContainer">
+  <h1>Math Practice</h1>
+  <div id="problem">Loading...</div>
+  <input type="text" id="answerInput" placeholder="Type your answer here" autocomplete="off" />
+  <div id="feedback"></div>
+</div>
+
+<!-- Game Hub -->
+<div id="gameHub">
+  <h1>Choose a Game</h1>
+  <ul id="gameList">
+    <li onclick="openGame('https://db.duckmath.org/html/grow_a_garden/index.html')">Grow a Garden</li>
+    <li onclick="openGame('https://db.duckmath.org/html/snow_rider_3d/index.html')">Snow Rider</li>
+    <li onclick="openGame('https://db.duckmath.org/html/ovo/index.html')">Ovo</li>
+    <li onclick="openGame('https://db.duckmath.org/html/smash_karts/index.html')">Smash Karts</li>
+    <li onclick="openGame('https://db.duckmath.org/html/retro_bowl/index.html')">Retro Bowl</li>
+    <li onclick="openGame('https://db.duckmath.org/html/1v1lol/index.html')">1v1.lol</li>
+    <li onclick="openGame('https://db.duckmath.org/html/tanuki_sunset/index.html')">Tanuki Sunset</li>
+    <li onclick="openGame('https://gba.cluster.ws/')">Emulator</li>
+    <li onclick="openGame('https://diep.io/')">Diep.io</li>
+    <li onclick="openGame('https://evoworld.io/')">EvoWorld.io</li>
+    <li onclick="openGame('https://shellshock.io/')">Shell Shockers</li>
+    <li onclick="openGame('https://slither.io/')">Slither.io</li>
+    <li onclick="openGame('https://zombsroyale.com/')">Zombs Royale</li>
+    <li onclick="openGame('https://hole-io.com/')">Hole.io</li>
+
+
+
+
+  </ul>
+
+  <iframe id="gameFrame"></iframe>
+  <div id="backBtn" title="Back to Home" onclick="closeGame()"></div>
+</div>
+
+<script>
+  const problemEl = document.getElementById('problem');
+  const answerInput = document.getElementById('answerInput');
+  const feedbackEl = document.getElementById('feedback');
+  const mathContainer = document.getElementById('mathContainer');
+  const gameHub = document.getElementById('gameHub');
+  const iframe = document.getElementById('gameFrame');
+  const backBtn = document.getElementById('backBtn');
+  const gameList = document.getElementById('gameList');
+  const header = gameHub.querySelector('h1');
+
+  let currentSum = 0;
+
+  function generateProblem() {
+    const a = Math.floor(Math.random() * 99) + 1;
+    const b = Math.floor(Math.random() * 99) + 1;
+    currentSum = a + b;
+    problemEl.textContent = `${a} + ${b} = ?`;
+    feedbackEl.textContent = '';
+    answerInput.value = '';
+    answerInput.focus();
+  }
+
+  generateProblem();
+
+  answerInput.addEventListener('input', () => {
+    const val = answerInput.value.trim();
+
+    if (val === 'bre') {
+      mathContainer.style.display = 'none';
+      gameHub.style.display = 'flex';
+      answerInput.value = '';
+      return;
+    }
+
+    if (/^\d+$/.test(val)) {
+      if (parseInt(val, 10) === currentSum) {
+        feedbackEl.textContent = 'Correct!';
+        generateProblem(); // immediately generate next without delay
+      } else {
+        feedbackEl.textContent = '';
+      }
+    } else {
+      feedbackEl.textContent = '';
+    }
+  });
+
+  function openGame(url) {
+    iframe.src = url;
+    iframe.style.display = 'block';
+    backBtn.style.display = 'block';
+    gameList.style.display = 'none';
+    header.style.display = 'none';
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeGame() {
+    iframe.src = '';
+    iframe.style.display = 'none';
+    backBtn.style.display = 'none';
+    gameList.style.display = 'block';
+    header.style.display = 'block';
+    document.body.style.overflow = 'auto';
+  }
+</script>
+
+</body>
+</html>
