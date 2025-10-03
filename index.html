@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+   <script type="module" src="https://unpkg.com/x-frame-bypass"></script>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Math Practice & Games</title>
@@ -153,21 +154,15 @@
 <div id="gameHub">
   <h1>Choose a Game</h1>
   <ul id="gameList">
-    <li onclick="openGame('https://db.duckmath.org/html/grow_a_garden/index.html')">Grow a Garden</li>
     <li onclick="openGame('https://uhjtpirg.gmsgroup.app/misc/polytrack-0.4.1/index.html')">Polytrack</li>
-    <li onclick="openGame('https://db.duckmath.org/html/snow_rider_3d/index.html')">Snow Rider</li>
-    <li onclick="openGame('https://db.duckmath.org/html/ovo/index.html')">Ovo</li>
-    <li onclick="openGame('https://db.duckmath.org/html/smash_karts/index.html')">Smash Karts</li>
-    <li onclick="openGame('https://db.duckmath.org/html/retro_bowl/index.html')">Retro Bowl</li>
-    <li onclick="openGame('https://db.duckmath.org/html/1v1lol/index.html')">1v1.lol</li>
-    <li onclick="openGame('https://db.duckmath.org/html/tanuki_sunset/index.html')">Tanuki Sunset</li>
-    <li onclick="openGame('https://gba.cluster.ws/')">Emulator</li>
-    <li onclick="openGame('https://diep.io/')">Diep.io</li>
-    <li onclick="openGame('https://evoworld.io/')">EvoWorld.io</li>
-    <li onclick="openGame('https://shellshock.io/')">Shell Shockers</li>
-    <li onclick="openGame('https://slither.io/')">Slither.io</li>
-    <li onclick="openGame('https://zombsroyale.com/')">Zombs Royale</li>
-    <li onclick="openGame('https://hole-io.com/')">Hole.io</li>
+    <li onclick="openGame('https://uhjtpirg.gmsgroup.app/misc/eaglercraftx/index.html')">Minecraft</li>
+    <li onclick="openGame('https://uhjtpirg.gmsgroup.app/misc/karlson/index.html')">Karlson</li>
+    <li onclick="openGame('https://htmlxm.github.io/h/smash-karts/')">Smash Karts</li>
+    <li onclick="openGame('https://uhjtpirg.gmsgroup.app/misc/leveldevil/index.html')">Level Devil</li>
+    <li onclick="openGame('https://uhjtpirg.gmsgroup.app/misc/nowgg/index.html')">1v1.lol</li>
+    <li onclick="openGame('https://uhjtpirg.gmsgroup.app/misc/Tanuki-Sunset/index.html')">Tanuki Sunset</li>
+    <li onclick="openGame('https://uhjtpirg.gmsgroup.app/misc/cookieclicker/index.html')">Cookie Clicker</li>
+    <li onclick="openGame('https://uhjtpirg.gmsgroup.app/misc/drive-mad/')">Drive Mad</li>
 
 
 
@@ -226,6 +221,7 @@
   });
 
   function openGame(url) {
+    // <iframe is="x-frame-bypass" src="https://example.org/"></iframe>
     iframe.src = url;
     iframe.style.display = 'block';
     backBtn.style.display = 'block';
