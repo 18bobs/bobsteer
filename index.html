@@ -5,158 +5,109 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Math Practice & Games</title>
     <link rel="stylesheet" href="https://unpkg.com/tachyons@4.12.0/css/tachyons.min.css" />
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
-
-  body {
-    margin: 0; font-family: 'Inter', sans-serif;
-    background: linear-gradient(135deg, #667eea, #764ba2);
-    color: #fff;
-    display: flex; flex-direction: column; align-items: center; justify-content: center;
-    min-height: 100vh; padding: 1rem;
-    overflow-x: hidden;
-  }
-
-  /* Math quiz container */
-  #mathContainer {
-    padding: 2rem 3rem;
-    max-width: 400px;
-    width: 100%;
-    text-align: center;
-  }
-
-  #mathContainer h1 {
-    font-weight: 600;
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-    text-shadow: 0 2px 6px rgba(0,0,0,0.3);
-  }
-
-  #problem {
-    font-size: 1.8rem;
-    margin: 1rem 0 2rem;
-  }
-
-  input[type="text"] {
-    width: 100%;
-    padding: 0.75rem 1rem;
-    font-size: 1.2rem;
-    border-radius: 8px;
-    border: none;
-    outline: none;
-    box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-    color: #222;
-  }
-
-  input[type="text"]:focus {
-    box-shadow: inset 0 0 8px #aabbff;
-  }
-
-  #feedback {
-    margin-top: 1rem;
-    height: 24px;
-    font-weight: 600;
-  }
-
-  /* Game Hub Container - big curved rectangle with slight white transparency */
-  #gameHub {
-    color: #fff;
-    min-height: 100vh;
-    padding: 2rem 3rem;
-    box-sizing: border-box;
-    display: none; /* hidden initially */
-    flex-direction: column;
-    align-items: center;
-    background: rgba(255 255 255 / 0.12);
-    border-radius: 32px;
-    max-width: 540px;
-    width: 90vw;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
-  }
-
-  #gameHub h1 {
-    font-weight: 600;
-    font-size: 2.5rem;
-    margin-bottom: 2rem;
-    text-align: center;
-    text-shadow: 0 2px 6px rgba(0,0,0,0.4);
-  }
-
-  ul#gameList {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    width: 100%;
-  }
-
-  /* Styled game list items */
-  ul#gameList li {
-  padding: 1rem 1.8rem;     /* thinner vertically, wider horizontally */
-  margin-bottom: 1.8rem;      /* more space between boxes */
-  border-radius: 12px;
-  cursor: pointer;
-  font-size: 1.3rem;
-  font-weight: 600;
-  user-select: none;
-  text-align: center;
-  color: #fff;
-  background: rgba(255 255 255 / 0.15); /* keep the same transparency */
-  transition: transform 0.3s ease;       /* no background change on hover */
-}
-
-  ul#gameList li:hover {
-    background: rgba(255 255 255 / 0.35);
-    transform: translateX(6px);
-  }
-
-  iframe {
-    display: none;
-    position: fixed;
-    top: 0; left: 0;
-    width: 100vw;
-    height: 100vh;
-    border: none;
-    z-index: 20;
-    background: #000;
-  }
-
-  /* Back button - quarter circle in top-left corner, no arrow */
-  #backBtn {
-    position: fixed;
-    top: -20px;
-    left: -20px;
-    width: 60px;
-    height: 60px;
-    background: rgba(255 255 255 / 0.15);
-    border-radius: 0 0 100% 0;
-    cursor: pointer;
-    z-index: 30;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-    transition: background-color 0.3s ease;
-    display: none; /* hidden by default */
-  }
-  #backBtn:hover {
-    background: rgba(255 255 255 / 0.35);
-  }
-</style>
+    <link rel="stylesheet" href="./styles.css" />
 </head>
 <body>
-<div class="bg-blue white pa3 br3 f2 ttu shadow-5">
-  Hello from Tachyons!
-</div>
+  <div id="page">
 
-<div class="flex w-80">
-  <div class="fl w-third ba pa3 mr2" onclick="openGame('https://uhjtpirg.gmsgroup.app/misc/polytrack-0.4.1/index.html')">Polytrack</div>
-  <div class="fl w-third ba pa3 mr2">Game 2</div>
-  <div class="fl w-third ba pa3 mr2">Game 3</div>
-</div>
-<br>
-<div class="flex w-80">
-  <div class="fl w-third ba pa3 mr2">Game 1</div>
-  <div class="fl w-third ba pa3 mr2">Game 2</div>
-  <div class="fl w-third ba pa3 mr2">Game 3</div>
-</div>
+    <div id="title" class="f-subheadline tc helvetica mt3 b white-80" style="font-family: 'Inter', sans-serif;">Bob Math</div>
+    <hr class="mt3">
+    <div id="container" class="container">
+      
+      <div class="game-icon" onclick="openGame('./games/minecraft.html')">
+        <img src="https://images.icon-icons.com/2699/PNG/512/minecraft_logo_icon_168974.png"/>
+        <div class="game-name">Minecraft</div>
+      </div>
+      <div class="game-icon" onclick="openGame('./games/polytrack.html')">
+        <img src="https://raw.githubusercontent.com/duckmath/icons/refs/heads/main/polytrack.webp"/>
+        <div class="game-name">Polytrack</div>
+      </div>
+      <div class="game-icon" onclick="openGame('./games/leveldevil.html')">
+        <img src="https://img.poki-cdn.com/cdn-cgi/image/q=78,scq=50,width=204,height=204,fit=cover,f=auto/0c3d1446c6992c2b88a9498de054688b/level-devil.png" alt="Level Devil">
+        <div class="game-name">Level Devil</div>
+      </div>
+      <div class="game-icon" onclick="openGame('./games/ovo.html')">
+        <img src="https://play-lh.googleusercontent.com/v7KwGdPjJGjJjRXn46sck4DwDBdKSeRzGN44CjiXUtKV0jjOi51Bt4wcXud0m-SkXg" alt="OvO Game">
+        <div class="game-name">OvO</div>
+      </div>
+      <div class="game-icon" onclick="openGame('./games/1v1lol.html')">
+        <img src="https://raw.githubusercontent.com/duckmath/icons/refs/heads/main/1v1.lol-old.webp" alt="1v1.lol Game">
+        <div class="game-name">1v1.lol</div>
+      </div>
+      <div class="game-icon" onclick="openGame('./games/crazycattle3d.html')">
+        <img src="https://crazycattle3dgithub.io/data/image/crazy-cattle-3d-online.png" alt="Crazy Cattle 3D Game">
+        <div class="game-name">Crazy Cattle 3D</div>
+      </div>
+      <div class="game-icon" onclick="openGame('./games/retrobowl.html')">
+        <img src="https://raw.githubusercontent.com/duckmath/icons/refs/heads/main/retro_bowl_icon.webp" alt="Retro Bowl Game">
+        <div class="game-name">Retro Bowl</div>
+      </div>
+      <div class="game-icon" onclick="openGame('./games/cookieclicker.html')">
+        <img src="https://raw.githubusercontent.com/duckmath/icons/refs/heads/main/cookieclicker.webp" alt="Cookie Clicker Game">
+        <div class="game-name">Cookie Clicker</div>
+      </div>
+      <div class="game-icon" onclick="openGame('./games/drivemad.html')">
+        <img src="https://play-lh.googleusercontent.com/V_egAxch0phxs10H_Z1QpWRrsH4phd8egT_5ZjYlFbXzXvwpUGpmJMn2h6HgbGkSlZSM" alt="Drive Mad Game">
+        <div class="game-name">Drive Mad</div>
+      </div>
+      <div class="game-icon" onclick="openGame('./games/basketrandom.html')">
+        <img src="https://scout.wgimager.com/f_webp/q_90/https://static.wgplayground.com/43105ae03bf75070f5e80a76bb59ac6e/wgplayground/c8a520f67cc563041d2a75bd8223939e.jpg" alt="Basket Random Game">
+        <div class="game-name">Basket Random</div>
+      </div>
+      <div class="game-icon" onclick="openGame('./games/rooftopsnipers.html')">
+        <img src="https://raw.githubusercontent.com/duckmath/icons/refs/heads/main/rooftop.webp" alt="Rooftop Snipers Game">
+        <div class="game-name">Rooftop Snipers</div>
+      </div>
+      <div class="game-icon" onclick="openGame('./games/doodlejump.html')">
+        <img src="https://raw.githubusercontent.com/duckmath/icons/refs/heads/main/doodle.webp" alt="Doodle Jump">
+        <div class="game-name">Doodle Jump</div>
+      </div>
+      <div class="game-icon" onclick="openGame('./games/ducklife.html')">
+        <img src="https://raw.githubusercontent.com/duckmath/icons/refs/heads/main/dl1.webp" alt="Duck Life Game">
+        <div class="game-name">Duck Life</div>
+      </div>
+      <div class="game-icon" onclick="openGame('./games/ducklife2.html')">
+        <img src="https://raw.githubusercontent.com/duckmath/icons/refs/heads/main/dl2.webp" alt="Duck Life 2">
+        <div class="game-name">Duck Life 2</div>
+      </div>
+      <div class="game-icon" onclick="openGame('./games/ducklife3.html')">
+        <img src="https://raw.githubusercontent.com/duckmath/icons/refs/heads/main/dl3.webp" alt="Duck Life 3">
+        <div class="game-name">Duck Life 3</div>
+      </div>
+      <div class="game-icon" onclick="openGame('./games/ducklife4.html')">
+        <img src="https://raw.githubusercontent.com/duckmath/icons/refs/heads/main/dl4.webp" alt="Duck Life 4">
+        <div class="game-name">Duck Life 4</div>
+      </div>
+      <div class="game-icon" onclick="openGame('./games/ducklife5.html')">
+        <img src="https://play-lh.googleusercontent.com/JQqSn7wuCj0SxBqpBThNI33qCR9gwY0str2TIAnu-m_xrVCgZk3IPxYK2S7zC9WG0ig" alt="Duck Life 5">
+        <div class="game-name">Duck Life 5</div>
+      </div>
 
+
+
+
+
+      
+
+
+
+
+
+
+
+
+
+
+      
+
+      
+
+      
+
+    </div>
+  </div>
+
+<!-- </div> -->
 <!-- Math Quiz -->
 <!-- <div id="mathContainer">
   <h1>Math Practice</h1>
@@ -166,100 +117,32 @@
 </div> -->
 
 <!-- Game Hub -->
-<div id="gameHub">
+<!-- <div id="gameHub">
   <h1>Choose a Game</h1>
   <ul id="gameList">
     <li onclick="openGame('./games/polytrack.html')">Polytrack</li>
-    <li onclick="openGame('https://uhjtpirg.gmsgroup.app/misc/polytrack-0.4.1/index.html')">Polytrack</li>
-    <li onclick="openGame('https://uhjtpirg.gmsgroup.app/misc/eaglercraftx/index.html')">Minecraft</li>
+    <li onclick="openGame('./games/minecraft.html')">Minecraft</li>
     <li onclick="openGame('https://uhjtpirg.gmsgroup.app/misc/karlson/index.html')">Karlson</li>
     <li onclick="openGame('https://htmlxm.github.io/h/smash-karts/')">Smash Karts</li>
-    <li onclick="openGame('https://uhjtpirg.gmsgroup.app/misc/leveldevil/index.html')">Level Devil</li>
+    <li onclick="openGame('./games/leveldevil.html')">Level Devil</li>
     <li onclick="openGame('https://uhjtpirg.gmsgroup.app/misc/nowgg/index.html')">1v1.lol</li>
     <li onclick="openGame('https://uhjtpirg.gmsgroup.app/misc/Tanuki-Sunset/index.html')">Tanuki Sunset</li>
     <li onclick="openGame('https://uhjtpirg.gmsgroup.app/misc/cookieclicker/index.html')">Cookie Clicker</li>
     <li onclick="openGame('https://uhjtpirg.gmsgroup.app/misc/drive-mad/')">Drive Mad</li>
     <li onclick="openGame('https://uhjtpirg.gmsgroup.app/misc/basket-random/')">Basket Random</li>
+    <li onclick="openGame('./games/ovo.html')">OvO</li> -->
 
 
 
 
-  </ul>
+  <!-- </ul> -->
 
   <iframe id="gameFrame"></iframe>
   <div id="backBtn" title="Back to Home" onclick="closeGame()"></div>
 </div>
 
-<script>
-  const problemEl = document.getElementById('problem');
-  // const answerInput = document.getElementById('answerInput');
-  const feedbackEl = document.getElementById('feedback');
-  const mathContainer = document.getElementById('mathContainer');
-  const gameHub = document.getElementById('gameHub');
-  const iframe = document.getElementById('gameFrame');
-  const backBtn = document.getElementById('backBtn');
-  const gameList = document.getElementById('gameList');
-  const header = gameHub.querySelector('h1');
+<script src="./index.js"></script>
 
-  let currentSum = 0;
-
-      // mathContainer.style.display = 'none';
-      gameHub.style.display = 'flex';
-
-
-  // function generateProblem() {
-  //   const a = Math.floor(Math.random() * 99) + 1;
-  //   const b = Math.floor(Math.random() * 99) + 1;
-  //   currentSum = a + b;
-  //   problemEl.textContent = `${a} + ${b} = ?`;
-  //   feedbackEl.textContent = '';
-  //   answerInput.value = '';
-  //   answerInput.focus();
-  // }
-
-  // generateProblem();
-
-  // answerInput.addEventListener('input', () => {
-  //   const val = answerInput.value.trim();
-
-  //   if (val === 'bre') {
-  //     mathContainer.style.display = 'none';
-  //     gameHub.style.display = 'flex';
-  //     answerInput.value = '';
-  //     return;
-  //   }
-
-  //   if (/^\d+$/.test(val)) {
-  //     if (parseInt(val, 10) === currentSum) {
-  //       feedbackEl.textContent = 'Correct!';
-  //       generateProblem(); // immediately generate next without delay
-  //     } else {
-  //       feedbackEl.textContent = '';
-  //     }
-  //   } else {
-  //     feedbackEl.textContent = '';
-  //   }
-  // });
-
-  function openGame(url) {
-    // <iframe is="x-frame-bypass" src="https://example.org/"></iframe>
-    iframe.src = url;
-    iframe.style.display = 'block';
-    backBtn.style.display = 'block';
-    gameList.style.display = 'none';
-    header.style.display = 'none';
-    document.body.style.overflow = 'hidden';
-  }
-
-  function closeGame() {
-    iframe.src = '';
-    iframe.style.display = 'none';
-    backBtn.style.display = 'none';
-    gameList.style.display = 'block';
-    header.style.display = 'block';
-    document.body.style.overflow = 'auto';
-  }
-</script>
 
 </body>
 </html>
