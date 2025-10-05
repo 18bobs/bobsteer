@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
    <script type="module" src="https://unpkg.com/x-frame-bypass"></script>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Math Practice & Games</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Math Practice & Games</title>
+    <link rel="stylesheet" href="https://unpkg.com/tachyons@4.12.0/css/tachyons.min.css" />
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
 
@@ -141,19 +141,35 @@
 </style>
 </head>
 <body>
+<div class="bg-blue white pa3 br3 f2 ttu shadow-5">
+  Hello from Tachyons!
+</div>
+
+<div class="flex w-80">
+  <div class="fl w-third ba pa3 mr2" onclick="openGame('https://uhjtpirg.gmsgroup.app/misc/polytrack-0.4.1/index.html')">Polytrack</div>
+  <div class="fl w-third ba pa3 mr2">Game 2</div>
+  <div class="fl w-third ba pa3 mr2">Game 3</div>
+</div>
+<br>
+<div class="flex w-80">
+  <div class="fl w-third ba pa3 mr2">Game 1</div>
+  <div class="fl w-third ba pa3 mr2">Game 2</div>
+  <div class="fl w-third ba pa3 mr2">Game 3</div>
+</div>
 
 <!-- Math Quiz -->
-<div id="mathContainer">
+<!-- <div id="mathContainer">
   <h1>Math Practice</h1>
   <div id="problem">Loading...</div>
   <input type="text" id="answerInput" placeholder="Type your answer here" autocomplete="off" />
   <div id="feedback"></div>
-</div>
+</div> -->
 
 <!-- Game Hub -->
 <div id="gameHub">
   <h1>Choose a Game</h1>
   <ul id="gameList">
+    <li onclick="openGame('./games/polytrack.html')">Polytrack</li>
     <li onclick="openGame('https://uhjtpirg.gmsgroup.app/misc/polytrack-0.4.1/index.html')">Polytrack</li>
     <li onclick="openGame('https://uhjtpirg.gmsgroup.app/misc/eaglercraftx/index.html')">Minecraft</li>
     <li onclick="openGame('https://uhjtpirg.gmsgroup.app/misc/karlson/index.html')">Karlson</li>
@@ -176,7 +192,7 @@
 
 <script>
   const problemEl = document.getElementById('problem');
-  const answerInput = document.getElementById('answerInput');
+  // const answerInput = document.getElementById('answerInput');
   const feedbackEl = document.getElementById('feedback');
   const mathContainer = document.getElementById('mathContainer');
   const gameHub = document.getElementById('gameHub');
@@ -187,39 +203,43 @@
 
   let currentSum = 0;
 
-  function generateProblem() {
-    const a = Math.floor(Math.random() * 99) + 1;
-    const b = Math.floor(Math.random() * 99) + 1;
-    currentSum = a + b;
-    problemEl.textContent = `${a} + ${b} = ?`;
-    feedbackEl.textContent = '';
-    answerInput.value = '';
-    answerInput.focus();
-  }
-
-  generateProblem();
-
-  answerInput.addEventListener('input', () => {
-    const val = answerInput.value.trim();
-
-    if (val === 'bre') {
-      mathContainer.style.display = 'none';
+      // mathContainer.style.display = 'none';
       gameHub.style.display = 'flex';
-      answerInput.value = '';
-      return;
-    }
 
-    if (/^\d+$/.test(val)) {
-      if (parseInt(val, 10) === currentSum) {
-        feedbackEl.textContent = 'Correct!';
-        generateProblem(); // immediately generate next without delay
-      } else {
-        feedbackEl.textContent = '';
-      }
-    } else {
-      feedbackEl.textContent = '';
-    }
-  });
+
+  // function generateProblem() {
+  //   const a = Math.floor(Math.random() * 99) + 1;
+  //   const b = Math.floor(Math.random() * 99) + 1;
+  //   currentSum = a + b;
+  //   problemEl.textContent = `${a} + ${b} = ?`;
+  //   feedbackEl.textContent = '';
+  //   answerInput.value = '';
+  //   answerInput.focus();
+  // }
+
+  // generateProblem();
+
+  // answerInput.addEventListener('input', () => {
+  //   const val = answerInput.value.trim();
+
+  //   if (val === 'bre') {
+  //     mathContainer.style.display = 'none';
+  //     gameHub.style.display = 'flex';
+  //     answerInput.value = '';
+  //     return;
+  //   }
+
+  //   if (/^\d+$/.test(val)) {
+  //     if (parseInt(val, 10) === currentSum) {
+  //       feedbackEl.textContent = 'Correct!';
+  //       generateProblem(); // immediately generate next without delay
+  //     } else {
+  //       feedbackEl.textContent = '';
+  //     }
+  //   } else {
+  //     feedbackEl.textContent = '';
+  //   }
+  // });
 
   function openGame(url) {
     // <iframe is="x-frame-bypass" src="https://example.org/"></iframe>
