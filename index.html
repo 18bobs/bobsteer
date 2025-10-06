@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-   <script type="module" src="https://unpkg.com/x-frame-bypass"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Math Practice & Games</title>
     <link rel="stylesheet" href="https://unpkg.com/tachyons@4.12.0/css/tachyons.min.css" />
     <link rel="stylesheet" href="./styles.css" />
+    <script src="./data.js"></script>
 </head>
 <body>
   <div id="page">
@@ -13,193 +13,8 @@
     <div id="title" class="f-subheadline tc helvetica mt3 b white-80" style="font-family: 'Inter', sans-serif;">Bob Math</div>
     <hr class="mt3">
     <div id="container" class="container">
-      
-      <div class="game-icon" onclick="openGame('./games/minecraft.html')">
-        <img src="https://images.icon-icons.com/2699/PNG/512/minecraft_logo_icon_168974.png"/>
-        <div class="game-name">Minecraft</div>
-      </div>
-      <div class="game-icon" onclick="openGame('./games/polytrack.html')">
-        <img src="https://raw.githubusercontent.com/duckmath/icons/refs/heads/main/polytrack.webp"/>
-        <div class="game-name">Polytrack</div>
-      </div>
-      <div class="game-icon" onclick="openGame('./games/leveldevil.html')">
-        <img src="https://img.poki-cdn.com/cdn-cgi/image/q=78,scq=50,width=204,height=204,fit=cover,f=auto/0c3d1446c6992c2b88a9498de054688b/level-devil.png" alt="Level Devil">
-        <div class="game-name">Level Devil</div>
-      </div>
-      <div class="game-icon" onclick="openGame('./games/ovo.html')">
-        <img src="https://play-lh.googleusercontent.com/v7KwGdPjJGjJjRXn46sck4DwDBdKSeRzGN44CjiXUtKV0jjOi51Bt4wcXud0m-SkXg" alt="OvO Game">
-        <div class="game-name">OvO</div>
-      </div>
-      <div class="game-icon" onclick="openGame('./games/crazycattle3d.html')">
-        <img src="https://crazycattle3dgithub.io/data/image/crazy-cattle-3d-online.png" alt="Crazy Cattle 3D Game">
-        <div class="game-name">Crazy Cattle 3D</div>
-      </div>
-      <div class="game-icon" onclick="openGame('./games/retrobowl.html')">
-        <img src="https://raw.githubusercontent.com/duckmath/icons/refs/heads/main/retro_bowl_icon.webp" alt="Retro Bowl Game">
-        <div class="game-name">Retro Bowl</div>
-      </div>
-      <div class="game-icon" onclick="openGame('./games/cookieclicker.html')">
-        <img src="https://raw.githubusercontent.com/duckmath/icons/refs/heads/main/cookieclicker.webp" alt="Cookie Clicker Game">
-        <div class="game-name">Cookie Clicker</div>
-      </div>
-      <div class="game-icon" onclick="openGame('./games/drivemad.html')">
-        <img src="https://play-lh.googleusercontent.com/V_egAxch0phxs10H_Z1QpWRrsH4phd8egT_5ZjYlFbXzXvwpUGpmJMn2h6HgbGkSlZSM" alt="Drive Mad Game">
-        <div class="game-name">Drive Mad</div>
-      </div>
-      <div class="game-icon" onclick="openGame('./games/basketrandom.html')">
-        <img src="https://scout.wgimager.com/f_webp/q_90/https://static.wgplayground.com/43105ae03bf75070f5e80a76bb59ac6e/wgplayground/c8a520f67cc563041d2a75bd8223939e.jpg" alt="Basket Random Game">
-        <div class="game-name">Basket Random</div>
-      </div>
-      <div class="game-icon" onclick="openGame('./games/rooftopsnipers.html')">
-        <img src="https://raw.githubusercontent.com/duckmath/icons/refs/heads/main/rooftop.webp" alt="Rooftop Snipers Game">
-        <div class="game-name">Rooftop Snipers</div>
-      </div>
-      <div class="game-icon" onclick="openGame('./games/doodlejump.html')">
-        <img src="https://raw.githubusercontent.com/duckmath/icons/refs/heads/main/doodle.webp" alt="Doodle Jump">
-        <div class="game-name">Doodle Jump</div>
-      </div>
-      <div class="game-icon" onclick="openGame('./games/ducklife.html')">
-        <img src="https://raw.githubusercontent.com/duckmath/icons/refs/heads/main/dl1.webp" alt="Duck Life Game">
-        <div class="game-name">Duck Life</div>
-      </div>
-      <div class="game-icon" onclick="openGame('./games/ducklife2.html')">
-        <img src="https://raw.githubusercontent.com/duckmath/icons/refs/heads/main/dl2.webp" alt="Duck Life 2">
-        <div class="game-name">Duck Life 2</div>
-      </div>
-      <div class="game-icon" onclick="openGame('./games/ducklife3.html')">
-        <img src="https://raw.githubusercontent.com/duckmath/icons/refs/heads/main/dl3.webp" alt="Duck Life 3">
-        <div class="game-name">Duck Life 3</div>
-      </div>
-      <div class="game-icon" onclick="openGame('./games/ducklife4.html')">
-        <img src="https://raw.githubusercontent.com/duckmath/icons/refs/heads/main/dl4.webp" alt="Duck Life 4">
-        <div class="game-name">Duck Life 4</div>
-      </div>
-      <div class="game-icon" onclick="openGame('./games/ducklife5.html')">
-        <img src="https://play-lh.googleusercontent.com/JQqSn7wuCj0SxBqpBThNI33qCR9gwY0str2TIAnu-m_xrVCgZk3IPxYK2S7zC9WG0ig" alt="Duck Life 5">
-        <div class="game-name">Duck Life 5</div>
-      </div>
-      <div class="game-icon" onclick="openGame('./games/ducklifespace.html')">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxaQe17mH-VqbM7tqqq_pIy8KuHiT2vWjdEtQ1YiNa5-CznoBTNwNHbvLPGSfdw6X9O-s&usqp=CAU" alt="Duck Life Space Game">
-        <div class="game-name">Duck Life Space</div>
-      </div>
-      <div class="game-icon" onclick="openGame('./games/ducklifebattle.html')">
-        <img src="https://img.poki-cdn.com/cdn-cgi/image/q=78,scq=50,width=1200,height=1200,fit=cover,f=png/20973cc3-b940-4215-998a-7efc6d747d79/duck-life-battle.png" alt="Duck Life Battle Game">
-        <div class="game-name">Duck Life Battle</div>
-      </div>
-      <div class="game-icon" onclick="openGame('./games/learntofly.html')">
-        <img src="https://www.coolmathgames.com/sites/default/files/LearntoFly_OG-logo.jpg" alt="Learn to Fly Game">
-        <div class="game-name">Learn to Fly</div>
-      </div>
-      <div class="game-icon" onclick="openGame('./games/learntofly2.html')">
-        <img src="https://raw.githubusercontent.com/duckmath/icons/refs/heads/main/learntofly2.webp" alt="Learn to Fly 2 Game">
-        <div class="game-name">Learn to Fly 2</div>
-      </div>
-      <div class="game-icon" onclick="openGame('./games/learntofly3.html')">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2MWknOSFbObzqiAHTsr32Cjn4R_pOtLZida6HbKc7173uKQNvoej1q_47FTfnsmqRNwtbKw" alt="Learn to Fly 3 Game">
-        <div class="game-name">Learn to Fly 3</div>
-      </div>
-      <div class="game-icon" onclick="openGame('./games/karlson.html')">
-        <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1228610/ss_7ace1081d4eb632e7654497a36718b2fad0c3d2e.1920x1080.jpg?t=1649362618" alt="Karlson Game">
-        <div class="game-name">Karlson</div>
-      </div>
-      <div class="game-icon" onclick="openGame('./games/tanukisunset.html')">
-        <img src="https://raw.githubusercontent.com/duckmath/icons/refs/heads/main/tanuki.webp" alt="Tanuki Sunset Game">
-        <div class="game-name">Tanuki Sunset</div>
-      </div>
-      <div class="game-icon" onclick="openGame('./games/bitlife.html')">
-        <img src="https://raw.githubusercontent.com/duckmath/icons/refs/heads/main/bitlife.webp" alt="Bitlife Game">
-        <div class="game-name">Bitlife</div>
-      </div>
-      <div class="game-icon" onclick="openGame('./games/motox3m.html')">
-        <img src="https://raw.githubusercontent.com/duckmath/icons/refs/heads/main/motox3m.webp" alt="Moto X3M">
-        <div class="game-name">Moto X3M</div>
-      </div>
-      <div class="game-icon" onclick="openGame('./games/motox3m2.html')">
-        <img src="https://a.silvergames.com/j/b/moto-x3m-2.jpg" alt="Moto X3M 2">
-        <div class="game-name">Moto X3M 2</div>
-      </div>
-      <div class="game-icon" onclick="openGame('./games/motox3m3.html')">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJCEvsEQS-MH1v6mkNOTnkrHDxmecSo3Th6jV32hv3TRlQWyIYSczPeaExAV4U9yHAn03uGw" alt="Moto X3M 3">
-        <div class="game-name">Moto X3M 3</div>
-      </div>
-      <div class="game-icon" onclick="openGame('./games/motox3mpoolparty.html')">
-        <img src="https://img.poki-cdn.com/cdn-cgi/image/q=78,scq=50,width=314,height=314,fit=cover,f=auto/0235b530eec4f17ad60137f6b245a988/moto-x3m-5-pool-party.jpeg" alt="Moto X3M Pool Party">
-        <div class="game-name">Moto X3M Pool Party</div>
-      </div>
-      <div class="game-icon" onclick="openGame('./games/motox3mspookyland.html')">
-        <img src="https://img.poki-cdn.com/cdn-cgi/image/quality=78,width=204,height=204,fit=cover,f=auto/3f8a297822df891a1c158576b6461014.png" alt="Moto X3M Spookyland">
-        <div class="game-name">Moto X3M Spookyland</div>
-      </div>
-      <div class="game-icon" onclick="openGame('./games/motox3mwinter.html')">
-        <img src="https://raw.githubusercontent.com/duckmath/icons/refs/heads/main/motox3mwinter.webp" alt="Moto X3M Winter">
-        <div class="game-name">Moto X3M Winter</div>
-      </div>
-      <div class="game-icon" onclick="openGame('./games/snowrider3d.html')">
-        <img src="https://say.games/_next/image?url=https%3A%2F%2Fweb-saystore-backend.sgdn.io%2Fsnwrdrw%2Ficon___akGln0EtUjbj&w=3840&q=75" alt="Snow Rider 3D Game">
-        <div class="game-name">Snow Rider 3D</div>
-      </div>
-
-
-      
-
-
-
-
-      
-
-
-
-
-
-      
-
-
-
-
-
-
-
-
-
-
-      
-
-      
-
-      
-
     </div>
   </div>
-
-<!-- </div> -->
-<!-- Math Quiz -->
-<!-- <div id="mathContainer">
-  <h1>Math Practice</h1>
-  <div id="problem">Loading...</div>
-  <input type="text" id="answerInput" placeholder="Type your answer here" autocomplete="off" />
-  <div id="feedback"></div>
-</div> -->
-
-<!-- Game Hub -->
-<!-- <div id="gameHub">
-  <h1>Choose a Game</h1>
-  <ul id="gameList">
-    <li onclick="openGame('./games/polytrack.html')">Polytrack</li>
-    <li onclick="openGame('./games/minecraft.html')">Minecraft</li>
-    <li onclick="openGame('https://uhjtpirg.gmsgroup.app/misc/karlson/index.html')">Karlson</li>
-    <li onclick="openGame('https://htmlxm.github.io/h/smash-karts/')">Smash Karts</li>
-    <li onclick="openGame('./games/leveldevil.html')">Level Devil</li>
-    <li onclick="openGame('https://uhjtpirg.gmsgroup.app/misc/nowgg/index.html')">1v1.lol</li>
-    <li onclick="openGame('https://uhjtpirg.gmsgroup.app/misc/Tanuki-Sunset/index.html')">Tanuki Sunset</li>
-    <li onclick="openGame('https://uhjtpirg.gmsgroup.app/misc/cookieclicker/index.html')">Cookie Clicker</li>
-    <li onclick="openGame('https://uhjtpirg.gmsgroup.app/misc/drive-mad/')">Drive Mad</li>
-    <li onclick="openGame('https://uhjtpirg.gmsgroup.app/misc/basket-random/')">Basket Random</li>
-    <li onclick="openGame('./games/ovo.html')">OvO</li> -->
-
-
-
-
-  <!-- </ul> -->
 
   <iframe id="gameFrame"></iframe>
   <div id="backBtn" title="Back to Home" onclick="closeGame()"></div>
