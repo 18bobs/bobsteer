@@ -1,13 +1,15 @@
 const iframe = document.getElementById('gameFrame');
 const backBtn = document.getElementById('backBtn');
-    
-function openGame(url) {
+
+function openGame(url, gameTitle, categoryName) {
   console.log("opening game at " + url)
   iframe.src = url;
   iframe.style.display = 'block';
   backBtn.style.display = 'block';
   document.body.style.overflow = 'hidden';
   
+  trackGamePlay(gameTitle, categoryName);
+
 }
 
 function closeGame() {
@@ -56,7 +58,7 @@ function loadCategory(name) {
 
     const gameDiv = document.createElement("div");
     gameDiv.className = "game-icon";
-    gameDiv.onclick = () => openGame(ggg.path);
+    gameDiv.onclick = () => openGame(ggg.path, ggg.title, name);
 
     const img = document.createElement("img");
     img.src = game.cover;

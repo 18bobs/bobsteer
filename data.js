@@ -1,5 +1,101 @@
 const gameData = [
   {
+    "title": "Minecraft 1.8.8",
+    "cover": "./cover/minecraft-1.8.8.png",
+    "path": "./html/minecraft-1.8.8.html",
+    "tags": ["Recommended"]
+  },
+  {
+    "title": "Survival Race",
+    "cover": "https://countryballsgame.com/wp-content/uploads/2025/07/survival-race-320x320.png",
+    "path": "./html/survival-race.html",
+    "tags": ["Recommended"]
+  },
+  {
+    "title": "Minecraft 1.12.2",
+    "cover": "./cover/minecraft-1.12.2.png",
+    "path": "./html/minecraft-1.12.2.html",
+    "tags": ["Recommended"]
+  },
+  {
+    "title": "Duck Life",
+    "cover": "https://raw.githubusercontent.com/duckmath/icons/refs/heads/main/dl1.webp",
+    "path": "./games/ducklife.html",
+    "tags": ["Simulation"]
+  },
+  {
+    "title": "Duck Life 2",
+    "cover": "https://raw.githubusercontent.com/duckmath/icons/refs/heads/main/dl2.webp",
+    "path": "./games/ducklife2.html",
+    "tags": ["Simulation"]
+  },
+  {
+    "title": "Duck Life 3",
+    "cover": "https://raw.githubusercontent.com/duckmath/icons/refs/heads/main/dl3.webp",
+    "path": "./games/ducklife3.html",
+    "tags": ["Simulation"]
+  },
+  {
+    "title": "Duck Life 4",
+    "cover": "https://raw.githubusercontent.com/duckmath/icons/refs/heads/main/dl4.webp",
+    "path": "./games/ducklife4.html",
+    "tags": ["Simulation"]
+  },
+  {
+    "title": "Duck Life 5",
+    "cover": "https://play-lh.googleusercontent.com/JQqSn7wuCj0SxBqpBThNI33qCR9gwY0str2TIAnu-m_xrVCgZk3IPxYK2S7zC9WG0ig",
+    "path": "./games/ducklife5.html",
+    "tags": ["Simulation"]
+  },
+  {
+    "title": "Duck Life Space",
+    "cover": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxaQe17mH-VqbM7tqqq_pIy8KuHiT2vWjdEtQ1YiNa5-CznoBTNwNHbvLPGSfdw6X9O-s&usqp=CAU",
+    "path": "./games/ducklifespace.html",
+    "tags": ["Simulation"]
+  },
+  {
+    "title": "Duck Life Battle",
+    "cover": "https://img.poki-cdn.com/cdn-cgi/image/q=78,scq=50,width=1200,height=1200,fit=cover,f=png/20973cc3-b940-4215-998a-7efc6d747d79/duck-life-battle.png",
+    "path": "./games/ducklifebattle.html",
+    "tags": ["Simulation"]
+  },
+  {
+    "title": "Moto X3M",
+    "cover": "https://raw.githubusercontent.com/duckmath/icons/refs/heads/main/motox3m.webp",
+    "path": "./games/motox3m.html",
+    "tags": ["Platformers"]
+  },
+  {
+    "title": "Moto X3M 2",
+    "cover": "https://a.silvergames.com/j/b/moto-x3m-2.jpg",
+    "path": "./games/motox3m2.html",
+    "tags": ["Platformers"]
+  },
+  {
+    "title": "Moto X3M 3",
+    "cover": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJCEvsEQS-MH1v6mkNOTnkrHDxmecSo3Th6jV32hv3TRlQWyIYSczPeaExAV4U9yHAn03uGw",
+    "path": "./games/motox3m3.html",
+    "tags": ["Platformers"]
+  },
+  {
+    "title": "Moto X3M Pool Party",
+    "cover": "https://img.poki-cdn.com/cdn-cgi/image/q=78,scq=50,width=314,height=314,fit=cover,f=auto/0235b530eec4f17ad60137f6b245a988/moto-x3m-5-pool-party.jpeg",
+    "path": "./games/motox3mpoolparty.html",
+    "tags": ["Platformers"]
+  },
+  {
+    "title": "Moto X3M Spookyland",
+    "cover": "https://img.poki-cdn.com/cdn-cgi/image/quality=78,width=204,height=204,fit=cover,f=auto/3f8a297822df891a1c158576b6461014.png",
+    "path": "./games/motox3mspookyland.html",
+    "tags": ["Platformers"]
+  },
+  {
+    "title": "Moto X3M Winter",
+    "cover": "https://raw.githubusercontent.com/duckmath/icons/refs/heads/main/motox3mwinter.webp",
+    "path": "./games/motox3mwinter.html",
+    "tags": ["Platformers"]
+  },
+  {
     "title": "Temple Run 2",
     "cover": "./cover/temple-run-2.png",
     "path": "./html/temple-run-2.html",
@@ -30,6 +126,12 @@ const gameData = [
     "tags": ["Recommended"]
   },
   {
+    "title": "Granny",
+    "cover": "https://play-lh.googleusercontent.com/yT_LBq_tyKeIDohKDsqN_Qt18jGIPUYIxY2C-1-E2YA9Qd60uZW08pua17qBmIiDPA",
+    "path": "./html/granny.html",
+    "tags": ["Recommended","Horror"]
+  },
+  {
     "title": "Granny 2",
     "cover": "./cover/granny-2.png",
     "path": "./html/granny-2.html",
@@ -58,12 +160,6 @@ const gameData = [
     "cover": "./cover/subway-surfers-iceland.png",
     "path": "./html/subway-surfers-iceland.html",
     "tags": ["Endless"]
-  },
-  {
-    "title": "Chess Classic",
-    "cover": "./cover/chess-classic.png",
-    "path": "./html/chess-classic.html",
-    "tags": ["Arcade"]
   },
   {
     "title": "ForkNSausage",
@@ -138,18 +234,6 @@ const gameData = [
     "tags": ["Arcade"]
   },
   {
-    "title": "Minecraft 1.8.8",
-    "cover": "./cover/minecraft-1.8.8.png",
-    "path": "./html/minecraft-1.8.8.html",
-    "tags": ["Recommended"]
-  },
-  {
-    "title": "Minecraft 1.12.2",
-    "cover": "./cover/minecraft-1.12.2.png",
-    "path": "./html/minecraft-1.12.2.html",
-    "tags": ["Recommended"]
-  },
-  {
     "title": "Five Nights at Freddy's World",
     "cover": "./cover/five-nights-at-freddy's-world.png",
     "path": "./html/five-nights-at-freddy's-world.html",
@@ -192,6 +276,48 @@ const gameData = [
     "tags": ["Arcade"]
   },
   {
+    "title": "Snow Rider 3D",
+    "cover": "https://say.games/_next/image?url=https%3A%2F%2Fweb-saystore-backend.sgdn.io%2Fsnwrdrw%2Ficon___akGln0EtUjbj&w=3840&q=75",
+    "path": "./games/snowrider3d.html",
+    "tags": ["Recommended"]
+  },
+  {
+    "title": "Tanuki Sunset",
+    "cover": "https://raw.githubusercontent.com/duckmath/icons/refs/heads/main/tanuki.webp",
+    "path": "./games/tanukisunset.html",
+    "tags": ["Recommended"]
+  },
+  {
+    "title": "Karlson",
+    "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1228610/ss_7ace1081d4eb632e7654497a36718b2fad0c3d2e.1920x1080.jpg?t=1649362618",
+    "path": "./games/karlson.html",
+    "tags": ["Recommended"]
+  },
+  {
+    "title": "Cookie Clicker",
+    "cover": "https://raw.githubusercontent.com/duckmath/icons/refs/heads/main/cookieclicker.webp",
+    "path": "./games/cookieclicker.html",
+    "tags": ["Recommended"]
+  },
+  {
+    "title": "OvO",
+    "cover": "https://play-lh.googleusercontent.com/v7KwGdPjJGjJjRXn46sck4DwDBdKSeRzGN44CjiXUtKV0jjOi51Bt4wcXud0m-SkXg",
+    "path": "./games/ovo.html",
+    "tags": ["Recommended"]
+  },
+  {
+    "title": "Level Devil",
+    "cover": "https://img.poki-cdn.com/cdn-cgi/image/q=78,scq=50,width=204,height=204,fit=cover,f=auto/0c3d1446c6992c2b88a9498de054688b/level-devil.png",
+    "path": "./games/leveldevil.html",
+    "tags": ["Recommended"]
+  },
+  {
+    "title": "Polytrack",
+    "cover": "https://raw.githubusercontent.com/duckmath/icons/refs/heads/main/polytrack.webp",
+    "path": "./games/polytrack.html",
+    "tags": ["Recommended","Racing"]
+  },
+  {
     "title": "Buckshot Roulette",
     "cover": "./cover/buckshot-roulette.png",
     "path": "./html/buckshot-roulette.html",
@@ -220,6 +346,198 @@ const gameData = [
     "cover": "./cover/turbo-stars.png",
     "path": "./html/turbo-stars.html",
     "tags": ["Arcade"]
+  },
+  {
+    "title": "Vex 4",
+    "cover": "./cover/vex-4.png",
+    "path": "./html/vex-4.html",
+    "tags": ["Platformers"]
+  },
+  {
+    "title": "Rooftop Snipers 2",
+    "cover": "./cover/rooftop-snipers-2.png",
+    "path": "./html/rooftop-snipers-2.html",
+    "tags": ["Arcade"]
+  },
+  {
+    "title": "gg kart",
+    "cover": "./cover/gg-kart.png",
+    "path": "./html/gg-kart.html",
+    "tags": ["Racing"]
+  },
+  {
+    "title": "Vex 5",
+    "cover": "./cover/vex-5.png",
+    "path": "./html/vex-5.html",
+    "tags": ["Platformers"]
+  },
+  {
+    "title": "Kindergarten 3",
+    "cover": "./cover/kindergarten3port.png",
+    "path": "./html/kindergarten3port.html",
+    "tags": ["Arcade"]
+  },
+  {
+    "title": "Stick With It",
+    "cover": "./cover/stick-with-it.png",
+    "path": "./html/stick-with-it.html",
+    "tags": ["Platformers"]
+  },
+  {
+    "title": "Vex 6",
+    "cover": "./cover/vex-6.png",
+    "path": "./html/vex-6.html",
+    "tags": ["Platformers"]
+  },
+  {
+    "title": "Dogeminer",
+    "cover": "./cover/dogeminer.png",
+    "path": "./html/dogeminer.html",
+    "tags": ["Simulation"]
+  },
+  {
+    "title": "The Final Earth 2",
+    "cover": "./cover/the-final-earth-2.png",
+    "path": "./html/the-final-earth-2.html",
+    "tags": ["Simulation"]
+  },
+  {
+    "title": "Swordfight",
+    "cover": "./cover/unity-web-player-swordfight.png",
+    "path": "./html/unity-web-player-swordfight.html",
+    "tags": ["Arcade"]
+  },
+  {
+    "title": "PortaBoy",
+    "cover": "./cover/portaboy.png",
+    "path": "./html/portaboy.html",
+    "tags": ["Platformers"]
+  },
+  {
+    "title": "Vex 7",
+    "cover": "./cover/vex-7.png",
+    "path": "./html/vex-7.html",
+    "tags": ["Platformers"]
+  },
+  {
+    "title": "Dan The Man",
+    "cover": "./cover/dantheman-defold-1.1.10.png",
+    "path": "./html/dantheman-defold-1.1.10.html",
+    "tags": ["Platformers"]
+  },
+  {
+    "title": "Vex 8",
+    "cover": "./cover/vex-8.png",
+    "path": "./html/vex-8.html",
+    "tags": ["Platformers"]
+  },
+  {
+    "title": "Plinko Balls",
+    "cover": "./cover/free-plinko-game-online-play-&-win-instant-rewards.png",
+    "path": "./html/free-plinko-game-online-play-&-win-instant-rewards.html",
+    "tags": ["Arcade"]
+  },
+  {
+    "title": "Clash Royale",
+    "cover": "./cover/clash-of-vikings.png",
+    "path": "./html/clash-of-vikings.html",
+    "tags": ["Arcade"]
+  },
+  {
+    "title": "Recoil",
+    "cover": "./cover/recoil-unblocked.png",
+    "path": "./html/recoil-unblocked.html",
+    "tags": ["Recommended"]
+  },
+  {
+    "title": "Vex X3M",
+    "cover": "./cover/vex-x3m.png",
+    "path": "./html/vex-x3m.html",
+    "tags": ["Platformers"]
+  },
+  {
+    "title": "Vex X3M 2",
+    "cover": "./cover/vex-x3m-2.png",
+    "path": "./html/vex-x3m-2.html",
+    "tags": ["Platformers"]
+  },
+  {
+    "title": "Monkey Mart",
+    "cover": "./cover/monkey-mart.png",
+    "path": "./html/monkey-mart.html",
+    "tags": ["Arcade"]
+  },
+  {
+    "title": "Block Blast",
+    "cover": "./cover/block-blast-puzzle.png",
+    "path": "./html/block-blast-puzzle.html",
+    "tags": ["Arcade"]
+  },
+  {
+    "title": "Basket Random",
+    "cover": "./cover/basket-random.png",
+    "path": "./html/basket-random.html",
+    "tags": ["Recommended"]
+  },
+  {
+    "title": "BitLife",
+    "cover": "./cover/bitlife-life-simulator.png",
+    "path": "./html/bitlife-life-simulator.html",
+    "tags": ["Recommended"]
+  },
+  {
+    "title": "Boxing Random",
+    "cover": "./cover/boxing-random.png",
+    "path": "./html/boxing-random.html",
+    "tags": ["Arcade"]
+  },
+  {
+    "title": "Cluster Truck",
+    "cover": "./cover/cluster-rush.png",
+    "path": "./html/cluster-rush.html",
+    "tags": ["Racing"]
+  },
+  {
+    "title": "Fireboy & Watergirl 2",
+    "cover": "./cover/fireboy-&-watergirl-2-light-temple.png",
+    "path": "./html/fireboy-&-watergirl-2-light-temple.html",
+    "tags": ["Platformers"]
+  },
+  {
+    "title": "Fireboy & Watergirl 3",
+    "cover": "./cover/fireboy-&-watergirl-3-ice-temple.png",
+    "path": "./html/fireboy-&-watergirl-3-ice-temple.html",
+    "tags": ["Platformers"]
+  },
+  {
+    "title": "Gunspin",
+    "cover": "./cover/gunspin.png",
+    "path": "./html/gunspin.html",
+    "tags": ["Arcade"]
+  },
+  {
+    "title": "Highway Racer 2",
+    "cover": "./cover/highway-racer-2.png",
+    "path": "./html/highway-racer-2.html",
+    "tags": ["Racing"]
+  },
+  {
+    "title": "Learn to Fly",
+    "cover": "https://www.coolmathgames.com/sites/default/files/LearntoFly_OG-logo.jpg",
+    "path": "./games/learntofly.html",
+    "tags": ["Simulation"]
+  },
+  {
+    "title": "Learn to Fly 2",
+    "cover": "https://raw.githubusercontent.com/duckmath/icons/refs/heads/main/learntofly2.webp",
+    "path": "./games/learntofly2.html",
+    "tags": ["Simulation"]
+  },
+  {
+    "title": "Learn to Fly 3",
+    "cover": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2MWknOSFbObzqiAHTsr32Cjn4R_pOtLZida6HbKc7173uKQNvoej1q_47FTfnsmqRNwtbKw",
+    "path": "./games/learntofly3.html",
+    "tags": ["Simulation"]
   },
   {
     "title": "Dragon Vs Bricks",
@@ -695,318 +1013,6 @@ const gameData = [
     "path": "./html/friday-night-funkin'.html",
     "tags": ["Arcade"]
   },
-  {
-    "title": "Vex 4",
-    "cover": "./cover/vex-4.png",
-    "path": "./html/vex-4.html",
-    "tags": ["Platformers"]
-  },
-  {
-    "title": "Rooftop Snipers 2",
-    "cover": "./cover/rooftop-snipers-2.png",
-    "path": "./html/rooftop-snipers-2.html",
-    "tags": ["Arcade"]
-  },
-  {
-    "title": "gg kart",
-    "cover": "./cover/gg-kart.png",
-    "path": "./html/gg-kart.html",
-    "tags": ["Racing"]
-  },
-  {
-    "title": "Vex 5",
-    "cover": "./cover/vex-5.png",
-    "path": "./html/vex-5.html",
-    "tags": ["Platformers"]
-  },
-  {
-    "title": "Kindergarten 3",
-    "cover": "./cover/kindergarten3port.png",
-    "path": "./html/kindergarten3port.html",
-    "tags": ["Arcade"]
-  },
-  {
-    "title": "Stick With It",
-    "cover": "./cover/stick-with-it.png",
-    "path": "./html/stick-with-it.html",
-    "tags": ["Platformers"]
-  },
-  {
-    "title": "Vex 6",
-    "cover": "./cover/vex-6.png",
-    "path": "./html/vex-6.html",
-    "tags": ["Platformers"]
-  },
-  {
-    "title": "Dogeminer",
-    "cover": "./cover/dogeminer.png",
-    "path": "./html/dogeminer.html",
-    "tags": ["Simulation"]
-  },
-  {
-    "title": "The Final Earth 2",
-    "cover": "./cover/the-final-earth-2.png",
-    "path": "./html/the-final-earth-2.html",
-    "tags": ["Simulation"]
-  },
-  {
-    "title": "Swordfight",
-    "cover": "./cover/unity-web-player-swordfight.png",
-    "path": "./html/unity-web-player-swordfight.html",
-    "tags": ["Arcade"]
-  },
-  {
-    "title": "PortaBoy",
-    "cover": "./cover/portaboy.png",
-    "path": "./html/portaboy.html",
-    "tags": ["Platformers"]
-  },
-  {
-    "title": "Vex 7",
-    "cover": "./cover/vex-7.png",
-    "path": "./html/vex-7.html",
-    "tags": ["Platformers"]
-  },
-  {
-    "title": "Dan The Man",
-    "cover": "./cover/dantheman-defold-1.1.10.png",
-    "path": "./html/dantheman-defold-1.1.10.html",
-    "tags": ["Platformers"]
-  },
-  {
-    "title": "Vex 8",
-    "cover": "./cover/vex-8.png",
-    "path": "./html/vex-8.html",
-    "tags": ["Platformers"]
-  },
-  {
-    "title": "Plinko Balls",
-    "cover": "./cover/free-plinko-game-online-play-&-win-instant-rewards.png",
-    "path": "./html/free-plinko-game-online-play-&-win-instant-rewards.html",
-    "tags": ["Arcade"]
-  },
-  {
-    "title": "Clash Royale",
-    "cover": "./cover/clash-of-vikings.png",
-    "path": "./html/clash-of-vikings.html",
-    "tags": ["Arcade"]
-  },
-  {
-    "title": "Recoil",
-    "cover": "./cover/recoil-unblocked.png",
-    "path": "./html/recoil-unblocked.html",
-    "tags": ["Recommended"]
-  },
-  {
-    "title": "Vex X3M",
-    "cover": "./cover/vex-x3m.png",
-    "path": "./html/vex-x3m.html",
-    "tags": ["Platformers"]
-  },
-  {
-    "title": "Vex X3M 2",
-    "cover": "./cover/vex-x3m-2.png",
-    "path": "./html/vex-x3m-2.html",
-    "tags": ["Platformers"]
-  },
-  {
-    "title": "Monkey Mart",
-    "cover": "./cover/monkey-mart.png",
-    "path": "./html/monkey-mart.html",
-    "tags": ["Arcade"]
-  },
-  {
-    "title": "Block Blast",
-    "cover": "./cover/block-blast-puzzle.png",
-    "path": "./html/block-blast-puzzle.html",
-    "tags": ["Arcade"]
-  },
-  {
-    "title": "Basket Random",
-    "cover": "./cover/basket-random.png",
-    "path": "./html/basket-random.html",
-    "tags": ["Recommended"]
-  },
-  {
-    "title": "BitLife",
-    "cover": "./cover/bitlife-life-simulator.png",
-    "path": "./html/bitlife-life-simulator.html",
-    "tags": ["Recommended"]
-  },
-  {
-    "title": "Boxing Random",
-    "cover": "./cover/boxing-random.png",
-    "path": "./html/boxing-random.html",
-    "tags": ["Arcade"]
-  },
-  {
-    "title": "Cluster Truck",
-    "cover": "./cover/cluster-rush.png",
-    "path": "./html/cluster-rush.html",
-    "tags": ["Racing"]
-  },
-  {
-    "title": "Fireboy & Watergirl 2",
-    "cover": "./cover/fireboy-&-watergirl-2-light-temple.png",
-    "path": "./html/fireboy-&-watergirl-2-light-temple.html",
-    "tags": ["Platformers"]
-  },
-  {
-    "title": "Fireboy & Watergirl 3",
-    "cover": "./cover/fireboy-&-watergirl-3-ice-temple.png",
-    "path": "./html/fireboy-&-watergirl-3-ice-temple.html",
-    "tags": ["Platformers"]
-  },
-  {
-    "title": "Gunspin",
-    "cover": "./cover/gunspin.png",
-    "path": "./html/gunspin.html",
-    "tags": ["Arcade"]
-  },
-  {
-    "title": "Highway Racer 2",
-    "cover": "./cover/highway-racer-2.png",
-    "path": "./html/highway-racer-2.html",
-    "tags": ["Racing"]
-  },
-  {
-    "title": "Moto X3M",
-    "cover": "https://raw.githubusercontent.com/duckmath/icons/refs/heads/main/motox3m.webp",
-    "path": "./games/motox3m.html",
-    "tags": ["Platformers"]
-  },
-  {
-    "title": "Moto X3M 2",
-    "cover": "https://a.silvergames.com/j/b/moto-x3m-2.jpg",
-    "path": "./games/motox3m2.html",
-    "tags": ["Platformers"]
-  },
-  {
-    "title": "Moto X3M 3",
-    "cover": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJCEvsEQS-MH1v6mkNOTnkrHDxmecSo3Th6jV32hv3TRlQWyIYSczPeaExAV4U9yHAn03uGw",
-    "path": "./games/motox3m3.html",
-    "tags": ["Platformers"]
-  },
-  {
-    "title": "Moto X3M Pool Party",
-    "cover": "https://img.poki-cdn.com/cdn-cgi/image/q=78,scq=50,width=314,height=314,fit=cover,f=auto/0235b530eec4f17ad60137f6b245a988/moto-x3m-5-pool-party.jpeg",
-    "path": "./games/motox3mpoolparty.html",
-    "tags": ["Platformers"]
-  },
-  {
-    "title": "Moto X3M Spookyland",
-    "cover": "https://img.poki-cdn.com/cdn-cgi/image/quality=78,width=204,height=204,fit=cover,f=auto/3f8a297822df891a1c158576b6461014.png",
-    "path": "./games/motox3mspookyland.html",
-    "tags": ["Platformers"]
-  },
-  {
-    "title": "Moto X3M Winter",
-    "cover": "https://raw.githubusercontent.com/duckmath/icons/refs/heads/main/motox3mwinter.webp",
-    "path": "./games/motox3mwinter.html",
-    "tags": ["Platformers"]
-  },
-  {
-    "title": "Duck Life",
-    "cover": "https://raw.githubusercontent.com/duckmath/icons/refs/heads/main/dl1.webp",
-    "path": "./games/ducklife.html",
-    "tags": ["Simulation"]
-  },
-  {
-    "title": "Duck Life 2",
-    "cover": "https://raw.githubusercontent.com/duckmath/icons/refs/heads/main/dl2.webp",
-    "path": "./games/ducklife2.html",
-    "tags": ["Simulation"]
-  },
-  {
-    "title": "Duck Life 3",
-    "cover": "https://raw.githubusercontent.com/duckmath/icons/refs/heads/main/dl3.webp",
-    "path": "./games/ducklife3.html",
-    "tags": ["Simulation"]
-  },
-  {
-    "title": "Duck Life 4",
-    "cover": "https://raw.githubusercontent.com/duckmath/icons/refs/heads/main/dl4.webp",
-    "path": "./games/ducklife4.html",
-    "tags": ["Simulation"]
-  },
-  {
-    "title": "Duck Life 5",
-    "cover": "https://play-lh.googleusercontent.com/JQqSn7wuCj0SxBqpBThNI33qCR9gwY0str2TIAnu-m_xrVCgZk3IPxYK2S7zC9WG0ig",
-    "path": "./games/ducklife5.html",
-    "tags": ["Simulation"]
-  },
-  {
-    "title": "Duck Life Space",
-    "cover": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxaQe17mH-VqbM7tqqq_pIy8KuHiT2vWjdEtQ1YiNa5-CznoBTNwNHbvLPGSfdw6X9O-s&usqp=CAU",
-    "path": "./games/ducklifespace.html",
-    "tags": ["Simulation"]
-  },
-  {
-    "title": "Duck Life Battle",
-    "cover": "https://img.poki-cdn.com/cdn-cgi/image/q=78,scq=50,width=1200,height=1200,fit=cover,f=png/20973cc3-b940-4215-998a-7efc6d747d79/duck-life-battle.png",
-    "path": "./games/ducklifebattle.html",
-    "tags": ["Simulation"]
-  },
-  {
-    "title": "Learn to Fly",
-    "cover": "https://www.coolmathgames.com/sites/default/files/LearntoFly_OG-logo.jpg",
-    "path": "./games/learntofly.html",
-    "tags": ["Simulation"]
-  },
-  {
-    "title": "Learn to Fly 2",
-    "cover": "https://raw.githubusercontent.com/duckmath/icons/refs/heads/main/learntofly2.webp",
-    "path": "./games/learntofly2.html",
-    "tags": ["Simulation"]
-  },
-  {
-    "title": "Learn to Fly 3",
-    "cover": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2MWknOSFbObzqiAHTsr32Cjn4R_pOtLZida6HbKc7173uKQNvoej1q_47FTfnsmqRNwtbKw",
-    "path": "./games/learntofly3.html",
-    "tags": ["Simulation"]
-  },
-  {
-    "title": "Snow Rider 3D",
-    "cover": "https://say.games/_next/image?url=https%3A%2F%2Fweb-saystore-backend.sgdn.io%2Fsnwrdrw%2Ficon___akGln0EtUjbj&w=3840&q=75",
-    "path": "./games/snowrider3d.html",
-    "tags": ["Recommended"]
-  },
-  {
-    "title": "Tanuki Sunset",
-    "cover": "https://raw.githubusercontent.com/duckmath/icons/refs/heads/main/tanuki.webp",
-    "path": "./games/tanukisunset.html",
-    "tags": ["Recommended"]
-  },
-  {
-    "title": "Karlson",
-    "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1228610/ss_7ace1081d4eb632e7654497a36718b2fad0c3d2e.1920x1080.jpg?t=1649362618",
-    "path": "./games/karlson.html",
-    "tags": ["Recommended"]
-  },
-  {
-    "title": "Cookie Clicker",
-    "cover": "https://raw.githubusercontent.com/duckmath/icons/refs/heads/main/cookieclicker.webp",
-    "path": "./games/cookieclicker.html",
-    "tags": ["Recommended"]
-  },
-  {
-    "title": "OvO",
-    "cover": "https://play-lh.googleusercontent.com/v7KwGdPjJGjJjRXn46sck4DwDBdKSeRzGN44CjiXUtKV0jjOi51Bt4wcXud0m-SkXg",
-    "path": "./games/ovo.html",
-    "tags": ["Recommended"]
-  },
-  {
-    "title": "Level Devil",
-    "cover": "https://img.poki-cdn.com/cdn-cgi/image/q=78,scq=50,width=204,height=204,fit=cover,f=auto/0c3d1446c6992c2b88a9498de054688b/level-devil.png",
-    "path": "./games/leveldevil.html",
-    "tags": ["Recommended"]
-  },
-  {
-    "title": "Polytrack",
-    "cover": "https://raw.githubusercontent.com/duckmath/icons/refs/heads/main/polytrack.webp",
-    "path": "./games/polytrack.html",
-    "tags": ["Recommended"]
-  }
 ]
 
 
