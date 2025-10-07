@@ -576,7 +576,7 @@ const gameData = [
     "tags": ["Horror"]
   },
   {
-    "title": "That's not my neighbor",
+    "title": "That's Not My Neighbor",
     "cover": "./cover/that's-not-my-neighbor.png",
     "path": "./html/that's-not-my-neighbor.html",
     "tags": ["Horror"]
