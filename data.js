@@ -114,7 +114,7 @@ const gameData = [
     "tags": ["Arcade"]
   },
   {
-    "title": "Tiny Fishing 1",
+    "title": "Tiny Fishing",
     "cover": "./cover/tiny-fishing-1.png",
     "path": "./html/tiny-fishing-1.html",
     "tags": ["Simulation"]
@@ -150,7 +150,7 @@ const gameData = [
     "tags": ["Arcade"]
   },
   {
-    "title": "WebOsu 2.0!",
+    "title": "WebOsu",
     "cover": "./cover/webosu-2.0!.png",
     "path": "./html/webosu-2.0!.html",
     "tags": ["Arcade"]
@@ -411,7 +411,7 @@ const gameData = [
     "title": "PortaBoy",
     "cover": "./cover/portaboy.png",
     "path": "./html/portaboy.html",
-    "tags": ["Platformers"]
+    "tags": ["Horror"]
   },
   {
     "title": "Vex 7",
