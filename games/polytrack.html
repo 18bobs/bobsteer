@@ -1,30 +1,51 @@
 <html>
-
 <head>
   <base href="https://cdn.jsdelivr.net/gh/genizy/polytrack@main/">
   <script>
-    // Wait for DOM loaded first (to safely query base)
     document.addEventListener('DOMContentLoaded', async () => {
+      // Store base URL
       window.jkdfgnjkndfg = document.querySelector('base').href;
 
-      // Fetch worker script and create blob URL
+      // Fetch worker source and inject fixes
       const res = await fetch("simulation_worker.bundle.js");
-      const text = await res.text();
-      const replacedText = text.replaceAll("replacethisplease", window.jkdfgnjkndfg);
-      const blob = new Blob([replacedText], { type: 'application/javascript' });
+      let text = await res.text();
+
+      // Replace path placeholders
+      text = text.replaceAll("replacethisplease", window.jkdfgnjkndfg);
+
+      // Inject crypto shim at top of worker script
+      const cryptoShim = `
+        // Polytrack Worker Crypto Fix
+        if (typeof self.crypto === "undefined" || !self.crypto.subtle) {
+          try {
+            self.crypto = {
+              subtle: {
+                digest: async (algorithm, data) => {
+                  // Delegate digest to window's crypto if available
+                  return await (window.crypto?.subtle?.digest?.(algorithm, data) ??
+                                Promise.reject(new Error("Web Crypto not available")));
+                }
+              }
+            };
+          } catch (e) {
+            console.warn("Crypto shim active:", e);
+          }
+        }
+      `;
+      const blob = new Blob([cryptoShim + "\n" + text], { type: 'application/javascript' });
       window.simulationworker = URL.createObjectURL(blob);
 
-      // Override Worker now that simulationworker blob URL is ready
+      // Override Worker constructor to use blob worker
       const ogworker = window.Worker;
       window.Worker = function (scripturl, options) {
-        if (typeof scripturl === 'string' && scripturl.toLowerCase() === "simulation_worker.bundle.js") {
+        if (typeof scripturl === 'string' && scripturl.toLowerCase().includes("simulation_worker.bundle.js")) {
           scripturl = window.simulationworker;
         }
         return new ogworker(scripturl, options);
       };
       window.Worker.prototype = ogworker.prototype;
 
-      // Patch fetch and XHR as you had before
+      // Patch fetch to redirect custom domains
       const ogfetch = window.fetch;
       window.fetch = async function (input, init) {
         if (typeof input === "string") {
@@ -36,6 +57,7 @@
         return ogfetch(input, init);
       };
 
+      // Patch XHR similarly
       const ogxml = XMLHttpRequest.prototype.open;
       XMLHttpRequest.prototype.open = function (method, url, ...rest) {
         if (typeof url === "string") {
@@ -44,16 +66,17 @@
         return ogxml.call(this, method, url, ...rest);
       };
 
-      // Fix webpack publicPath (critical)
+      // Webpack base fix
       window.__webpack_public_path__ = window.jkdfgnjkndfg;
 
-      // Dynamically load main.bundle.js now
+      // Load main Polytrack bundle
       const script = document.createElement('script');
       script.type = 'module';
       script.src = 'main.bundle.js';
       document.body.appendChild(script);
     });
   </script>
+
   <link rel="manifest" href="manifest.json" />
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
 </head>
@@ -63,5 +86,4 @@
   <div id="ui"></div>
   <div id="transition-layer"></div>
 </body>
-
 </html>
