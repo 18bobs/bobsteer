@@ -3,39 +3,18 @@
   <base href="https://cdn.jsdelivr.net/gh/genizy/polytrack@main/">
   <script>
     document.addEventListener('DOMContentLoaded', async () => {
-      // Store base URL
       window.jkdfgnjkndfg = document.querySelector('base').href;
 
-      // Fetch worker source and inject fixes
       const res = await fetch("simulation_worker.bundle.js");
       let text = await res.text();
 
-      // Replace path placeholders
       text = text.replaceAll("replacethisplease", window.jkdfgnjkndfg);
 
-      // Inject crypto shim at top of worker script
       const cryptoShim = `
-        // Polytrack Worker Crypto Fix
-        if (typeof self.crypto === "undefined" || !self.crypto.subtle) {
-          try {
-            self.crypto = {
-              subtle: {
-                digest: async (algorithm, data) => {
-                  // Delegate digest to window's crypto if available
-                  return await (window.crypto?.subtle?.digest?.(algorithm, data) ??
-                                Promise.reject(new Error("Web Crypto not available")));
-                }
-              }
-            };
-          } catch (e) {
-            console.warn("Crypto shim active:", e);
-          }
-        }
       `;
       const blob = new Blob([cryptoShim + "\n" + text], { type: 'application/javascript' });
       window.simulationworker = URL.createObjectURL(blob);
 
-      // Override Worker constructor to use blob worker
       const ogworker = window.Worker;
       window.Worker = function (scripturl, options) {
         if (typeof scripturl === 'string' && scripturl.toLowerCase().includes("simulation_worker.bundle.js")) {
@@ -45,7 +24,6 @@
       };
       window.Worker.prototype = ogworker.prototype;
 
-      // Patch fetch to redirect custom domains
       const ogfetch = window.fetch;
       window.fetch = async function (input, init) {
         if (typeof input === "string") {
@@ -57,7 +35,6 @@
         return ogfetch(input, init);
       };
 
-      // Patch XHR similarly
       const ogxml = XMLHttpRequest.prototype.open;
       XMLHttpRequest.prototype.open = function (method, url, ...rest) {
         if (typeof url === "string") {
@@ -66,10 +43,8 @@
         return ogxml.call(this, method, url, ...rest);
       };
 
-      // Webpack base fix
       window.__webpack_public_path__ = window.jkdfgnjkndfg;
 
-      // Load main Polytrack bundle
       const script = document.createElement('script');
       script.type = 'module';
       script.src = 'main.bundle.js';
