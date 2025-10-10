@@ -20,11 +20,24 @@
 </head>
 <body>
   <div id="page">
+    <div id="title" class="f2 tc helvetica mt2 pv2 b white-90">
+      <img 
+        src="/logo.png" 
+        alt="Bob Math" 
+        style="width: 600px; height: auto;"
+      >
+    </div>
 
-    <div id="title" class="f-subheadline tc helvetica mt3 b washed-yellow" style="font-family: 'Tahoma', sans-serif;">Bob Math</div>
-    <br>
-    <br>
-    <div id="category-buttons" class="f3 flex justify-center" style="font-family: 'Inter', sans-serif">
+    <div class="flex justify-center mt3">
+      <input 
+        id="searchBar" 
+        type="text" 
+        placeholder="Search..."
+        class="pa2 br3 w-10 tc"
+        style="border: 1px solid #ccc; outline: none; font-family: 'Roboto', sans-serif;"
+      />
+    </div>
+    <div id="category-buttons" class="f4 flex justify-center mt3" style="font-family: 'Inter', sans-serif">
       <button id="btn-All" class="fw7 br4 ph3 pv3 mr3 grow bg-white black" onClick="loadCategory('All')">All</button>
       <button id="btn-Recommended" class="fw7 br4 ph3 pv2 mr3 grow bg-white black" onClick="loadCategory('Recommended')">Recommended</button>
       <button id="btn-Endless" class="fw7 br4 ph3 pv2 mr3 grow bg-white black" onClick="loadCategory('Endless')">Endless</button>

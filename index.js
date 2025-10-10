@@ -36,9 +36,8 @@ function loadCategory(name) {
   }
   
 
-  
   // create the divs for individual games
-  for (game of gameData) {
+  for (const game of gameData) {
 
     if (name != 'All') {
       var tagFound = false;
@@ -78,11 +77,47 @@ function loadCategory(name) {
 
 
 const gameContainer = document.getElementById("container"); 
+const searchBar = document.getElementById("searchBar");
 
 function removeAllChildren(parentElement) {
   while (parentElement.firstChild) {
     parentElement.removeChild(parentElement.firstChild);
   }
 }
+
+searchBar.addEventListener("input", (e) => {
+  const query = e.target.value.trim().toLowerCase();
+
+  if (query === "") {
+    loadCategory("All");
+    return;
+  }
+
+  removeAllChildren(gameContainer);
+
+  for (const game of gameData) {
+    if (!game.title.toLowerCase().startsWith(query)) continue;
+
+    const ggg = game
+
+    const gameDiv = document.createElement("div");
+    gameDiv.className = "game-icon";
+    gameDiv.onclick = () => openGame(ggg.path, ggg.title, name);
+
+    const img = document.createElement("img");
+    img.src = game.cover;
+    img.alt = `${game.title} Cover`;
+
+    const titleDiv = document.createElement("div");
+    titleDiv.className = "game-name";
+    titleDiv.textContent = game.title;
+
+    gameDiv.appendChild(img);
+    gameDiv.appendChild(titleDiv);
+    gameContainer.appendChild(gameDiv);
+  }
+});
+
+
 
 loadCategory("Recommended")

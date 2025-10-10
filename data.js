@@ -150,7 +150,7 @@ const gameData = [
     "tags": ["Arcade"]
   },
   {
-    "title": "WebOsu",
+    "title": "Osu",
     "cover": "./cover/webosu-2.0!.png",
     "path": "./html/webosu-2.0!.html",
     "tags": ["Arcade"]
