@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en-us">
+<base href="https://cdn.jsdelivr.net/gh/Stinkalistic/UGS@main/MISC/dud/">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+      html, body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        width: 100%;
+        overflow: hidden;
+        background: black;
+      }
+
+      canvas {
+        display: block;
+        width: 100vw;
+        height: 100vh;
+      }
+    </style>
+  </head>
+
+  <body>
+    <canvas id="loadingCanvas" oncontextmenu="event.preventDefault()" width="800" height="600"></canvas>
+    <canvas id="canvas" oncontextmenu="event.preventDefault()"></canvas>
+
+    <script>
+      function resizeCanvas() {
+        const canvas = document.getElementById("canvas");
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+      }
+
+      window.addEventListener("load", resizeCanvas);
+      window.addEventListener("resize", resizeCanvas);
+    </script>
+
+    <script>
+      const loadingContext = document.getElementById('loadingCanvas').getContext('2d');
+
+      function drawLoadingText(text) {
+        const canvas = loadingContext.canvas;
+        loadingContext.fillStyle = "black";
+        loadingContext.fillRect(0, 0, canvas.scrollWidth, canvas.scrollHeight);
+        loadingContext.font = '2em arial';
+        loadingContext.textAlign = 'center';
+        loadingContext.fillStyle = "rgb(11, 86, 117)";
+        loadingContext.fillText(text, canvas.scrollWidth / 2, canvas.scrollHeight / 2);
+      }
+
+      var Module = {
+        arguments: ["./game.love"],
+        INITIAL_MEMORY: 16777216,
+        printErr: console.error.bind(console),
+        canvas: document.getElementById('canvas'),
+        setStatus: function (text) {
+          if (text) {
+            drawLoadingText(text);
+          } else if (Module.remainingDependencies === 0) {
+            document.getElementById('loadingCanvas').style.display = 'none';
+            document.getElementById('canvas').style.visibility = 'visible';
+          }
+        },
+        totalDependencies: 0,
+        remainingDependencies: 0,
+        monitorRunDependencies: function (left) {
+          this.remainingDependencies = left;
+          this.totalDependencies = Math.max(this.totalDependencies, left);
+          Module.setStatus(left ? 'Preparing... (' + (this.totalDependencies - left) + '/' + this.totalDependencies + ')' : 'All downloads complete.');
+        }
+      };
+
+      Module.setStatus('Downloading...');
+
+      window.onerror = function (event) {
+        Module.setStatus('Exception thrown, see JavaScript console');
+        Module.setStatus = function (text) {
+          if (text) Module.printErr('[post-exception status] ' + text);
+        };
+      };
+
+      var applicationLoad = function () {
+        Love(Module);
+      };
+    </script>
+
+    <script src="game.js"></script>
+    <script async src="love.js" onload="applicationLoad()"></script>
+  </body>

@@ -18,6 +18,25 @@ const gameData = [
     "tags": ["Recommended"]
   },
   {
+    "title": "Polytrack",
+    "cover": "https://raw.githubusercontent.com/duckmath/icons/refs/heads/main/polytrack.webp",
+    "path": "./games/polytrack.html",
+    "tags": ["Recommended","Racing"]
+  },
+  {
+    "title": "Knights Arena",
+    "cover": "./cover/knights-arena.png",
+    "path": "./html/knights-arena.html",
+    "tags": ["Recommended"]
+  },
+  {
+    "title": "Steal a Brainrot",
+    "cover": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcHS0A5wF6PeVrj1ouXtmtyDd8TZyauyV-mQ&s",
+    "path": "./html/steal-a-brainrot.html",
+    "tags": ["Recommended"]
+  },
+
+  {
     "title": "Duck Life",
     "cover": "https://raw.githubusercontent.com/duckmath/icons/refs/heads/main/dl1.webp",
     "path": "./games/ducklife.html",
@@ -58,6 +77,18 @@ const gameData = [
     "cover": "https://img.poki-cdn.com/cdn-cgi/image/q=78,scq=50,width=1200,height=1200,fit=cover,f=png/20973cc3-b940-4215-998a-7efc6d747d79/duck-life-battle.png",
     "path": "./games/ducklifebattle.html",
     "tags": ["Simulation"]
+  },
+  {
+    "title": "DUD",
+    "cover": "https://img.itch.zone/aW1nLzEzNzE4MzQzLnBuZw==/original/KLbZPd.png",
+    "path": "./html/dud.html",
+    "tags": ["Recommended"]
+  },
+  {
+    "title": "Rocket League",
+    "cover": "https://img-eshop.cdn.nintendo.net/i/af3ff55d9cede76426ab6dbdc89dae90cd799c1f8715ae218a43db7bd1ef277f.jpg",
+    "path": "./html/rocket-league.html",
+    "tags": ["Recommended"]
   },
   {
     "title": "Moto X3M",
@@ -144,10 +175,10 @@ const gameData = [
     "tags": ["Horror"]
   },
   {
-    "title": "AttackHole",
-    "cover": "./cover/attackhole.png",
-    "path": "./html/attackhole.html",
-    "tags": ["Arcade"]
+    "title": "Russian Truck Driving",
+    "cover": "https://imgs.crazygames.com/auto-covers/russian-car-driver-zil-130_1x1.png?format=auto&quality=100&metadata=none&width=1200",
+    "path": "./html/russian-truck-driving.html",
+    "tags": ["Racing"]
   },
   {
     "title": "Osu",
@@ -310,12 +341,6 @@ const gameData = [
     "cover": "https://img.poki-cdn.com/cdn-cgi/image/q=78,scq=50,width=204,height=204,fit=cover,f=auto/0c3d1446c6992c2b88a9498de054688b/level-devil.png",
     "path": "./games/leveldevil.html",
     "tags": ["Recommended"]
-  },
-  {
-    "title": "Polytrack",
-    "cover": "https://raw.githubusercontent.com/duckmath/icons/refs/heads/main/polytrack.webp",
-    "path": "./games/polytrack.html",
-    "tags": ["Recommended","Racing"]
   },
   {
     "title": "Buckshot Roulette",
@@ -696,12 +721,6 @@ const gameData = [
     "tags": ["Arcade"]
   },
   {
-    "title": "Knights Arena",
-    "cover": "./cover/knights-arena.png",
-    "path": "./html/knights-arena.html",
-    "tags": ["Arcade"]
-  },
-  {
     "title": "OvO Dimensions",
     "cover": "./cover/ovo-dimensions.png",
     "path": "./html/ovo-dimensions.html",
@@ -780,10 +799,10 @@ const gameData = [
     "tags": ["Arcade"]
   },
   {
-    "title": "Idle breakout",
+    "title": "Idle Breakout",
     "cover": "./cover/idle-breakout.png",
     "path": "./html/idle-breakout.html",
-    "tags": ["Arcade"]
+    "tags": ["Recommended","Arcade"]
   },
   {
     "title": "Idle Lumber Inc",

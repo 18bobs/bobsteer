@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Russian Car Driver HD</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <script src="https://cdn.jsdelivr.net/gh/selenite-cc/selenite-old@9c743188888af0986c8c7b293dbac8f9e421a4ee/russiancardriver/Build/UnityLoader.js"></script>
+  <script src="/js/all.js"></script>
+
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      width: 100%;
+      background-color: black;
+      color: white;
+      overflow: hidden; /* prevent scrollbars */
+    }
+    #gameContainer {
+      width: 100vw;
+      height: 100vh;
+      display: block;
+    }
+    /* Optional: make sure container parent fills viewport */
+    #container {
+      width: 100vw;
+      height: 100vh;
+    }
+  </style>
+
+  <script>
+    window.onload = function () {
+      var gameInstance = UnityLoader.instantiate(
+        "gameContainer",
+        "https://rawcdn.githack.com/selenite-cc/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/russiancardriver/Build/rcd_hd_sept_26.json"
+      );
+    };
+  </script>
+</head>
+<body>
+  <div id="container" class="container webgl-content">
+    <div id="gameContainer"></div>
+    <!-- you can remove or keep footer as you want -->
+  </div>
+</body>
+</html>
