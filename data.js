@@ -175,9 +175,9 @@ const gameData = [
     "tags": ["Horror"]
   },
   {
-    "title": "Russian Truck Driving",
+    "title": "Russian Truck Driver",
     "cover": "https://imgs.crazygames.com/auto-covers/russian-car-driver-zil-130_1x1.png?format=auto&quality=100&metadata=none&width=1200",
-    "path": "./html/russian-truck-driving.html",
+    "path": "./html/russian-truck-driver.html",
     "tags": ["Racing"]
   },
   {
