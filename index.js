@@ -1,14 +1,14 @@
 const iframe = document.getElementById('gameFrame');
 const backBtn = document.getElementById('backBtn');
 
-function openGame(url, gameTitle, categoryName) {
+function openGame(url, gameTitle) {
   console.log("opening game at " + url)
   iframe.src = url;
   iframe.style.display = 'block';
   backBtn.style.display = 'block';
   document.body.style.overflow = 'hidden';
   
-  trackGamePlay(gameTitle, categoryName);
+  trackGamePlay(gameTitle);
 
 }
 
@@ -57,7 +57,7 @@ function loadCategory(name) {
 
     const gameDiv = document.createElement("div");
     gameDiv.className = "game-icon";
-    gameDiv.onclick = () => openGame(ggg.path, ggg.title, name);
+    gameDiv.onclick = () => openGame(ggg.path, ggg.title);
 
     const img = document.createElement("img");
     img.src = game.cover;
@@ -102,7 +102,7 @@ searchBar.addEventListener("input", (e) => {
 
     const gameDiv = document.createElement("div");
     gameDiv.className = "game-icon";
-    gameDiv.onclick = () => openGame(ggg.path, ggg.title, name);
+    gameDiv.onclick = () => openGame(ggg.path, ggg.title);
 
     const img = document.createElement("img");
     img.src = game.cover;

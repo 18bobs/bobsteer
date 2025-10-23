@@ -1,6 +1,5 @@
-function trackGamePlay(gameTitle, gameCategory) {
+function trackGamePlay(gameTitle) {
   gtag('event', 'Game', {
     game_name: gameTitle,
-    category: gameCategory
   });
 }
