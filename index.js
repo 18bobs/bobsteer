@@ -1,6 +1,18 @@
 const iframe = document.getElementById('gameFrame');
 const backBtn = document.getElementById('backBtn');
 
+
+function switchTab(tab) {
+  const tabContents = document.getElementsByClassName("page-content");
+
+  for (var i = 0; i < tabContents.length; i++) {
+    tabContents[i].style.display="none";
+  }
+
+  document.getElementById("page-" + tab).style.display = "block"
+
+
+}
 function openGame(url, gameTitle) {
   console.log("opening game at " + url)
   iframe.src = url;

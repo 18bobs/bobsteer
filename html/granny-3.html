@@ -1,158 +1,174 @@
 <!DOCTYPE html>
-
 <html lang="en-us">
 <head>
-<meta charset="utf-8"/>
-<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
-<title>Unity WebGL Player | Granny 3</title>
-<link href="https://cdn.jsdelivr.net/gh/ranny31ranny/5471@main/TemplateData/favicon.ico" rel="shortcut icon"/>
-<link href="https://cdn.jsdelivr.net/gh/ranny31ranny/5471@main/TemplateData/style.css" rel="stylesheet"/>
-<!-- Yandex Games SDK -->
-<script src="https://cdn.jsdelivr.net/gh/ranny31ranny/5471@main/v2.79e5f6f6325b0faa1b66.js"></script>
+  <meta charset="utf-8" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Unity WebGL Player | Granny 3</title>
+
+  <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/ranny31ranny/5471@main/TemplateData/favicon.ico" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ranny31ranny/5471@main/TemplateData/style.css" />
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: #000;
+    }
+    #unity-container {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      top: 0;
+    }
+  </style>
 </head>
+
 <body>
-<div id="unity-container" style="position: absolute; width: 100%; height: 100%; left: 0%; top: 0%;">
-<canvas id="unity-canvas" style="position: absolute; width: 100%; height: 100%"></canvas>
-<div id="unity-loading-bar">
-<div id="unity-logo"></div>
-<div id="unity-progress-bar-empty">
-<div id="unity-progress-bar-full"></div>
-</div>
-</div>
-<div id="unity-warning"> </div>
-</div>
-<script>
-        YaGames
-        .init()
-        .then(ysdk => {
-            console.log('Yandex SDK initialized');
-            window.ysdk = ysdk;
-            initPlayer();
-        });
-        
-        var player;
+  <div id="unity-container">
+    <canvas id="unity-canvas" style="width:100%; height:100%"></canvas>
+    <div id="unity-loading-bar">
+      <div id="unity-logo"></div>
+      <div id="unity-progress-bar-empty">
+        <div id="unity-progress-bar-full"></div>
+      </div>
+    </div>
+    <div id="unity-warning"></div>
+  </div>
 
-        function initPlayer() {
-            return ysdk.getPlayer({ scopes: false }).then(_player => {
-                    player = _player;
+  <script>
+    let ysdk, player;
 
-                    return player;
-                });
-        }
-
-    </script>
-<script>
-      var container = document.querySelector("#unity-container");
-      var canvas = document.querySelector("#unity-canvas");
-      var loadingBar = document.querySelector("#unity-loading-bar");
-      var progressBarFull = document.querySelector("#unity-progress-bar-full");
-      var warningBanner = document.querySelector("#unity-warning");
-
-      function unityShowBanner(msg, type) {
-        function updateBannerVisibility() {
-          warningBanner.style.display = warningBanner.children.length ? 'block' : 'none';
-        }
-        var div = document.createElement('div');
-        div.innerHTML = msg;
-        warningBanner.appendChild(div);
-        if (type == 'error') div.style = 'background: red; padding: 10px;';
-        else {
-          if (type == 'warning') div.style = 'background: yellow; padding: 10px;';
-          setTimeout(function() {
-            warningBanner.removeChild(div);
-            updateBannerVisibility();
-          }, 5000);
-        }
-        updateBannerVisibility();
+    // --- MAIN INIT SEQUENCE ---
+    function initYSDK() {
+      if (typeof YaGames === 'undefined') {
+        console.error('YaGames is not defined — SDK failed to load.');
+        startUnityGame();
+        return;
       }
 
-      var buildUrl = "https://cdn.jsdelivr.net/gh/ranny31ranny/5471@main/Build";
-      var loaderUrl = buildUrl + "/bb0d9ecdb05db3e84da20bd14a4f84dc.loader.js";
-
-      function mergeFiles(fileParts) {
-        return new Promise((resolve, reject) => {
-            let buffers = [];
-            function fetchPart(index) {
-                if (index >= fileParts.length) {
-                    let mergedBlob = new Blob(buffers);
-                    let mergedFileUrl = URL.createObjectURL(mergedBlob);
-                    resolve(mergedFileUrl);
-                    return;
-                }
-                fetch(fileParts[index])
-                    .then(response => response.arrayBuffer())
-                    .then(data => {
-                        buffers.push(data);
-                        fetchPart(index + 1);
-                    })
-                    .catch(reject);
-            }
-            fetchPart(0);
+      YaGames.init()
+        .then(sdk => {
+          console.log('✅ Yandex SDK initialized');
+          ysdk = sdk;
+          return ysdk.getPlayer({ scopes: false });
+        })
+        .then(_player => {
+          player = _player;
+          console.log('✅ Yandex player loaded');
+          startUnityGame();
+        })
+        .catch(err => {
+          console.error('❌ Error initializing Yandex SDK:', err);
+          startUnityGame(); // still start game
         });
+    }
+
+    function unityShowBanner(msg, type) {
+      const warningBanner = document.getElementById("unity-warning");
+      const div = document.createElement("div");
+      div.innerHTML = msg;
+      div.style.padding = "10px";
+      if (type === "error") div.style.background = "red";
+      else if (type === "warning") div.style.background = "yellow";
+      warningBanner.appendChild(div);
+      setTimeout(() => div.remove(), 5000);
+    }
+
+    async function mergeFiles(parts) {
+      const buffers = [];
+      for (let i = 0; i < parts.length; i++) {
+        const res = await fetch(parts[i]);
+        if (!res.ok) throw new Error(`Failed to load ${parts[i]}`);
+        buffers.push(await res.arrayBuffer());
       }
+      const blob = new Blob(buffers);
+      return URL.createObjectURL(blob);
+    }
 
-      var wasmParts = [
-          buildUrl + "/bd8d511ba06d09159c93b032551b04fb.wasm.part0",
-          buildUrl + "/bd8d511ba06d09159c93b032551b04fb.wasm.part1",
-          buildUrl + "/bd8d511ba06d09159c93b032551b04fb.wasm.part2"
+    async function startUnityGame() {
+      const container = document.getElementById("unity-container");
+      const canvas = document.getElementById("unity-canvas");
+      const loadingBar = document.getElementById("unity-loading-bar");
+      const progressBarFull = document.getElementById("unity-progress-bar-full");
+
+      const buildUrl = "https://cdn.jsdelivr.net/gh/ranny31ranny/5471@main/Build";
+      const loaderUrl = buildUrl + "/bb0d9ecdb05db3e84da20bd14a4f84dc.loader.js";
+      const frameworkUrl = buildUrl + "/e12dac5a3f5e3f677b009118afef20b7.framework.js";
+
+      const wasmParts = [
+        buildUrl + "/bd8d511ba06d09159c93b032551b04fb.wasm.part0",
+        buildUrl + "/bd8d511ba06d09159c93b032551b04fb.wasm.part1",
+        buildUrl + "/bd8d511ba06d09159c93b032551b04fb.wasm.part2"
+      ];
+      const dataParts = [
+        buildUrl + "/fef8fdd7cfc9e5a5001034b01fa3647b.data.part0",
+        buildUrl + "/fef8fdd7cfc9e5a5001034b01fa3647b.data.part1"
       ];
 
-      var dataParts = [
-          buildUrl + "/fef8fdd7cfc9e5a5001034b01fa3647b.data.part0",
-          buildUrl + "/fef8fdd7cfc9e5a5001034b01fa3647b.data.part1"
-      ];
-
-      Promise.all([
+      try {
+        loadingBar.style.display = "block";
+        const [wasmUrl, dataUrl] = await Promise.all([
           mergeFiles(wasmParts),
           mergeFiles(dataParts)
-      ]).then(([wasmUrl, dataUrl]) => {
-          var config = {
-              dataUrl: dataUrl,
-              frameworkUrl: buildUrl + "/e12dac5a3f5e3f677b009118afef20b7.framework.js",
-              codeUrl: wasmUrl,
-              streamingAssetsUrl: "StreamingAssets",
-              companyName: "Games Place",
-              productName: "Granny 3",
-              productVersion: "0.1",
-              showBanner: unityShowBanner,
-          };
+        ]);
 
-          if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
-              var meta = document.createElement('meta');
-              meta.name = 'viewport';
-              meta.content = 'width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes';
-              document.getElementsByTagName('head')[0].appendChild(meta);
-              container.className = "unity-mobile";
-              canvas.className = "unity-mobile";
-          } else {
-              canvas.style.width = "100%";
-              canvas.style.height = "100%";
-          }
+        const config = {
+          dataUrl,
+          frameworkUrl,
+          codeUrl: wasmUrl,
+          streamingAssetsUrl: "StreamingAssets",
+          companyName: "Games Place",
+          productName: "Granny 3",
+          productVersion: "0.1",
+          showBanner: unityShowBanner
+        };
 
-          loadingBar.style.display = "block";
-          
-          // myGameInstance global olarak tanımlanıyor
-          window.myGameInstance = null;
+        if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+          const meta = document.createElement("meta");
+          meta.name = "viewport";
+          meta.content = "width=device-width, height=device-height, initial-scale=1.0, user-scalable=no";
+          document.head.appendChild(meta);
+          container.className = "unity-mobile";
+          canvas.className = "unity-mobile";
+        } else {
+          canvas.style.width = "100%";
+          canvas.style.height = "100%";
+        }
 
-          var script = document.createElement("script");
-          script.src = loaderUrl;
-          script.onload = () => {
-            createUnityInstance(canvas, config, (progress) => {
-              progressBarFull.style.width = 100 * progress + "%";
-                  }).then((unityInstance) => {
-                    window.myGameInstance = unityInstance; // Global hale getirildi
-                    loadingBar.style.display = "none";
-                  }).catch((message) => {
-                    console.error("Unity yükleme hatası:", message);
-                    alert(message);
-                  });
-                };
+        const loaderScript = document.createElement("script");
+        loaderScript.src = loaderUrl;
+        loaderScript.onload = () => {
+          createUnityInstance(canvas, config, (progress) => {
+            progressBarFull.style.width = 100 * progress + "%";
+          }).then(instance => {
+            window.myGameInstance = instance;
+            loadingBar.style.display = "none";
+            console.log("✅ Unity game loaded successfully");
+          }).catch(err => {
+            console.error("❌ Unity load error:", err);
+            alert("Unity failed to load.");
+          });
+        };
+        document.body.appendChild(loaderScript);
+      } catch (err) {
+        console.error("❌ File merge or Unity init error:", err);
+      }
+    }
 
-          document.body.appendChild(script);
-      }).catch(error => {
-          console.error("Dosya birleştirme hatası:", error);
-      });
-
-</script>
+    // --- Load the Yandex SDK dynamically after everything else ---
+    window.addEventListener("DOMContentLoaded", () => {
+      const sdkScript = document.createElement("script");
+      sdkScript.src = "https://cdn.jsdelivr.net/gh/ranny31ranny/5471@main/v2.79e5f6f6325b0faa1b66.js";
+      sdkScript.onload = initYSDK;
+      sdkScript.onerror = () => {
+        console.error("Failed to load Yandex SDK, starting Unity directly.");
+        startUnityGame();
+      };
+      document.body.appendChild(sdkScript);
+    });
+  </script>
 </body>
 </html>

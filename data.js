@@ -19,7 +19,7 @@ const gameData = [
   },
   {
     "title": "Polytrack",
-    "cover": "https://raw.githubusercontent.com/duckmath/icons/refs/heads/main/polytrack.webp",
+    "cover": "https://pizzaedition.win/apnggames/polytrack.png",
     "path": "./games/polytrack.html",
     "tags": ["Recommended","Racing"]
   },
@@ -38,25 +38,25 @@ const gameData = [
 
   {
     "title": "Duck Life",
-    "cover": "https://raw.githubusercontent.com/duckmath/icons/refs/heads/main/dl1.webp",
+    "cover": "https://play-lh.googleusercontent.com/vtJKdZwiBoQ0m0QVBvCj6oFBEVCehcPktS58KspbJeQdHOfcpAuGu4eWET97KQMH7M0UChLFxMoaErlpq4isSkE",
     "path": "./games/ducklife.html",
     "tags": ["Simulation"]
   },
   {
     "title": "Duck Life 2",
-    "cover": "https://raw.githubusercontent.com/duckmath/icons/refs/heads/main/dl2.webp",
+    "cover": "https://img.poki-cdn.com/cdn-cgi/image/q=78,scq=50,width=1200,height=1200,fit=cover,f=png/f2431276-8a98-4214-9a88-d0ea91fe0af2/ducklife-2.png",
     "path": "./games/ducklife2.html",
     "tags": ["Simulation"]
   },
   {
     "title": "Duck Life 3",
-    "cover": "https://raw.githubusercontent.com/duckmath/icons/refs/heads/main/dl3.webp",
+    "cover": "https://img.poki-cdn.com/cdn-cgi/image/q=78,scq=50,width=1200,height=1200,fit=cover,f=png/f5671816-e95b-4d41-adb7-411708f431ba/ducklife-3.png",
     "path": "./games/ducklife3.html",
     "tags": ["Simulation"]
   },
   {
     "title": "Duck Life 4",
-    "cover": "https://raw.githubusercontent.com/duckmath/icons/refs/heads/main/dl4.webp",
+    "cover": "https://images.igdb.com/igdb/image/upload/t_cover_big/coald0.webp",
     "path": "./games/ducklife4.html",
     "tags": ["Simulation"]
   },
@@ -85,14 +85,14 @@ const gameData = [
     "tags": ["Recommended"]
   },
   {
-    "title": "Rocket League",
-    "cover": "https://img-eshop.cdn.nintendo.net/i/af3ff55d9cede76426ab6dbdc89dae90cd799c1f8715ae218a43db7bd1ef277f.jpg",
-    "path": "./html/rocket-league.html",
+    "title": "Rocket Goal",
+    "cover": "https://play-lh.googleusercontent.com/xYmXleDWgPjObguVDhC-hpcC8a5yP7399awTpyPdsxIzgV52VQEAndSZ9M4WhOXQQcBs248yuB_IMUKrWz061w=w600-h300-pc0xffffff-pd",
+    "path": "./html/rocket-goal.html",
     "tags": ["Recommended"]
   },
   {
     "title": "Moto X3M",
-    "cover": "https://raw.githubusercontent.com/duckmath/icons/refs/heads/main/motox3m.webp",
+    "cover": "https://imgs.crazygames.com/moto-x3m_1x1/20231122033955/moto-x3m_1x1-cover?format=auto&quality=100&metadata=none&width=1200",
     "path": "./games/motox3m.html",
     "tags": ["Platformers"]
   },
@@ -122,7 +122,7 @@ const gameData = [
   },
   {
     "title": "Moto X3M Winter",
-    "cover": "https://raw.githubusercontent.com/duckmath/icons/refs/heads/main/motox3mwinter.webp",
+    "cover": "https://img.poki-cdn.com/cdn-cgi/image/q=78,scq=50,width=1200,height=1200,fit=cover,f=png/c28eee5a5924e8a70afb2c1490d9b571/moto-x3m-4-winter.jpeg",
     "path": "./games/motox3mwinter.html",
     "tags": ["Platformers"]
   },
@@ -314,7 +314,7 @@ const gameData = [
   },
   {
     "title": "Tanuki Sunset",
-    "cover": "https://raw.githubusercontent.com/duckmath/icons/refs/heads/main/tanuki.webp",
+    "cover": "https://img.itch.zone/aW1hZ2UvNTAwMDM1LzI1ODY0MjUucG5n/original/UhGuMj.png",
     "path": "./games/tanukisunset.html",
     "tags": ["Recommended"]
   },
@@ -326,7 +326,7 @@ const gameData = [
   },
   {
     "title": "Cookie Clicker",
-    "cover": "https://raw.githubusercontent.com/duckmath/icons/refs/heads/main/cookieclicker.webp",
+    "cover": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8LAMx-QZh1PcM8KQ9T45nc4y2kycq14WAfg&s",
     "path": "./games/cookieclicker.html",
     "tags": ["Recommended"]
   },
@@ -547,6 +547,12 @@ const gameData = [
     "tags": ["Racing"]
   },
   {
+    "title": "Super Mario 64",
+    "cover": "https://assets1.ignimgs.com/2019/05/31/mario-64---button-1559263987447.jpg",
+    "path": "./html/super-mario-64.html",
+    "tags": ["Recommended","Arcade"]
+  },
+  {
     "title": "Learn to Fly",
     "cover": "https://www.coolmathgames.com/sites/default/files/LearntoFly_OG-logo.jpg",
     "path": "./games/learntofly.html",
@@ -554,7 +560,7 @@ const gameData = [
   },
   {
     "title": "Learn to Fly 2",
-    "cover": "https://raw.githubusercontent.com/duckmath/icons/refs/heads/main/learntofly2.webp",
+    "cover": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSimHHgVKugB1yuhwHPH7NseAoAitWmEAWFdQ&s",
     "path": "./games/learntofly2.html",
     "tags": ["Simulation"]
   },
