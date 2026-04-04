@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="UTF-8">
     <title>Bob Math</title>
 
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-WTF48MXWXP"></script>
@@ -19,44 +20,54 @@
     <script src="./analytics.js"></script>
 </head>
 <body>
+  <a href="/leaderboard" class="leaderboard-corner">
+    <img src="https://cdn-icons-png.flaticon.com/512/17567/17567712.png">
+  </a>
+  <!-- <div id="sidebar">
+    <div id="sidebar-container" class="fl w-100 pa2">
+      <button class="sidebar-text" onClick="switchTab('dashboard')">🏠︎ Dashboard</button>
+      <button class="sidebar-text" onClick="switchTab('math')">🎮 Math</button>
+      <button class="sidebar-text" onClick="switchTab('settings')">⚙️ Settings</button>
+    </div>
+  </div> -->
   <div id="page">
-    <div id="title" class="f2 tc helvetica mt2 pv2 b white-90">
-      <img 
-        src="/logo.png" 
-        alt="Bob Math" 
-        style="width: 600px; height: auto;"
-      >
-    </div>
+    <div class="page-content" id="page-math">
+      <div id="title" class="f2 tc helvetica mt2 pv2 b white-90">
+        <img src="/logo.png" alt="Bob Math" style="width: 600px; height: auto;">
+      </div>
 
-    <div class="flex justify-center mt3">
-      <input 
-        id="searchBar" 
-        type="text" 
-        placeholder="Search..."
-        class="pa2 br3 w-10 tc"
-        style="border: 1px solid #ccc; outline: none; font-family: 'Roboto', sans-serif;"
-      />
-    </div>
-    <div id="category-buttons" class="f4 flex justify-center mt3" style="font-family: 'Inter', sans-serif">
-      <button id="btn-All" class="fw7 br4 ph3 pv3 mr3 grow bg-white black" onClick="loadCategory('All')">All</button>
-      <button id="btn-Recommended" class="fw7 br4 ph3 pv2 mr3 grow bg-white black" onClick="loadCategory('Recommended')">Recommended</button>
-      <button id="btn-Endless" class="fw7 br4 ph3 pv2 mr3 grow bg-white black" onClick="loadCategory('Endless')">Endless</button>
-      <button id="btn-Platformers" class="fw7 br4 ph3 pv2 mr3 grow bg-white black" onClick="loadCategory('Platformers')">Platformers</button>
-      <button id="btn-Arcade" class="fw7 br4 ph3 pv2 mr3 grow bg-white black" onClick="loadCategory('Arcade')">Arcade</button>
-      <button id="btn-Horror" class="fw7 br4 ph3 pv2 mr3 grow bg-white black" onClick="loadCategory('Horror')">Horror</button>
-      <button id="btn-Simulation"class="fw7 br4 ph3 pv2 mr3 grow bg-white black" onClick="loadCategory('Simulation')">Simulation</button>
-      <button id="btn-Racing" class="fw7 br4 ph3 pv2 mr3 grow bg-white black" onClick="loadCategory('Racing')">Racing</button>
-    </div>
+      <div class="flex justify-center mt3">
+        <input 
+          id="searchBar" 
+          type="text" 
+          placeholder="Search..."
+          class="pa2 br3 w-10 tc"
+          style="border: 1px solid #ccc; outline: none; font-family: 'Roboto', sans-serif;"
+        />
+      </div>
+      <div id="category-buttons" class="f4 flex justify-center mt3" style="font-family: 'Inter', sans-serif">
+        <button id="btn-All" class="fw7 br4 ph3 pv3 mr3 grow bg-white black" onClick="loadCategory('All')">All</button>
+        <button id="btn-Recommended" class="fw7 br4 ph3 pv2 mr3 grow bg-white black" onClick="loadCategory('Recommended')">Recommended</button>
+        <button id="btn-Endless" class="fw7 br4 ph3 pv2 mr3 grow bg-white black" onClick="loadCategory('Endless')">Endless</button>
+        <button id="btn-Platformers" class="fw7 br4 ph3 pv2 mr3 grow bg-white black" onClick="loadCategory('Platformers')">Platformers</button>
+        <button id="btn-Arcade" class="fw7 br4 ph3 pv2 mr3 grow bg-white black" onClick="loadCategory('Arcade')">Arcade</button>
+        <button id="btn-Horror" class="fw7 br4 ph3 pv2 mr3 grow bg-white black" onClick="loadCategory('Horror')">Horror</button>
+        <button id="btn-Simulation"class="fw7 br4 ph3 pv2 mr3 grow bg-white black" onClick="loadCategory('Simulation')">Simulation</button>
+        <button id="btn-Racing" class="fw7 br4 ph3 pv2 mr3 grow bg-white black" onClick="loadCategory('Racing')">Racing</button>
+      </div>
 
-    <div id="container" class="container"></div>
+      <div id="container" class="container"></div>
 
-    <iframe id="gameFrame"></iframe>
-    <div id="backBtn" title="Back to Home" onclick="closeGame()"></div>
+      <iframe id="gameFrame"></iframe>
+      <div id="backBtn" title="Back to Home" onclick="closeGame()"></div>
+    </div>
   </div>
+  <!-- <div class="page-content" id="page-dashboard"><h1>Dashboard</h1></div>
+  <div class="page-content" id="page-settings"><h1>Settings</h1></div> -->
+
+</body>
 
 <script src="./index.js"></script>
 <script src="./analytics.js"></script>
 
-
-</body>
 </html>

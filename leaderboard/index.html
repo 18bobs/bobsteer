@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/tachyons@4.12.0/css/tachyons.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <title>Home - Google Drive</title>
+    <link rel="icon" type="image/x-icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Google_Drive_icon_%282020%29.svg/960px-Google_Drive_icon_%282020%29.svg.png">
+</head>
+<body>
+    <div id="leaderboard-container" class="flex flex-column items-center pa4 sans-serif tc">
+        <h1 class="f2 b--orange tc b orange">Leaderboard</h1>
+        <div class="w-100 mw6">
+            <div class="flex flex-row f7 ttu tracked pa3 silver">
+                <div class="w-20 tc">Rank</div>
+                <div class="w-60">School</div>
+                <div class="w-20 tr">Points</div>
+            </div>
+            <div id="leaderboard-body">
+                </div>
+            <a href="/" class="mt4 link dim br-pill ph4 pv3 mb2 dib white bg-orange b ttu">← Back to Home</a>
+    </div>
+
+    <button id="changeSchoolBtn" class="mt3 f7 link dim br-pill ph3 pv2 mb4 dib white bg-mid-gray b ttu pointer">
+    Change My School
+    </button>
+
+    <div id="userSchoolDisplay" class="dn mw6 w-100 mt5 pa3 br3 bg-white-10 ba b--white-20 shadow-4 center">
+        <p class="f7 ttu tracked orange b mb2 mt0">Your  School</p>
+        <div class="flex justify-between items-center">
+            <span id="displaySchoolName" class="f4 b white">---</span>
+            <div class="tr">
+                <span id="displaySchoolPoints" class="f4 orange b db">0</span>
+                <span class="f7 silver ttu tracked">Points</span>
+            </div>
+        </div>
+    </div>
+
+    <div id="schoolModal" class="dn fixed inset-0 vh-100 w-100 bg-black-60 flex items-center justify-center">
+        <div class="bg-white w-90 pa4 br3 shadow-5 flex flex-column" style="max-width: 26rem;">
+            <button id="closeModal" class="self-end f4 fw6 link silver hover-dark-gray pointer bn bg-transparent">×</button>
+            <h2 class="f3 fw6 mt0 mb3 tc dark-gray">Sign up!</h2>
+            <p class="f6 gray mt0 mb4 tc">Select your school to join the leaderboard</p>
+
+            <div class="mb3">
+                <label class="db f7 fw6 ttu tracked gray mb1">State</label>
+                <select id="stateSelect" class="w-100 pa2 ba b--black-10 br2 bg-near-white f5">
+                    <option value="">Choose a state...</option>
+                </select>
+            </div>
+
+            <div class="mb3">
+                <label class="db f7 fw6 ttu tracked gray mb1">City</label>
+                <select id="citySelect" disabled class="w-100 pa2 ba b--black-10 br2 bg-near-white f5">
+                    <option value="">Choose a city...</option>
+                </select>
+            </div>
+
+            <div class="mb4">
+                <label class="db f7 fw6 ttu tracked gray mb1">School</label>
+                <select id="schoolSelect" disabled class="w-100 pa2 ba b--black-10 br2 bg-near-white f5">
+                    <option value="">Choose a school...</option>
+                </select>
+            </div>
+
+            <button id="submitSchool" class="w-100 pv3 br2 bn white bg-blue fw6 o-50 pointer dim">
+            Confirm School
+            </button>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script src="index.js"></script>
+</body>
+</html>

@@ -1,5 +1,7 @@
 const iframe = document.getElementById('gameFrame');
 const backBtn = document.getElementById('backBtn');
+const url = "https://script.google.com/macros/s/AKfycbz9iZOxW_LUhyWiWalrqMnVYC0UGj9PEqaYl_BLeHON7GPmMhDa4e_aL-Kbsv6fO9iPXw/exec"
+let activityTimer = null; 
 
 
 function switchTab(tab) {
@@ -21,6 +23,7 @@ function openGame(url, gameTitle) {
   document.body.style.overflow = 'hidden';
   
   trackGamePlay(gameTitle);
+  startTimer();
 
 }
 
@@ -29,6 +32,12 @@ function closeGame() {
   iframe.style.display = 'none';
   backBtn.style.display = 'none';
   document.body.style.overflow = 'auto';
+
+  if (activityTimer) {
+        clearInterval(activityTimer); 
+        activityTimer = null;  
+        console.log("Timer Stopped.");
+    }
 }
 
 function loadCategory(name) {
@@ -130,6 +139,29 @@ searchBar.addEventListener("input", (e) => {
   }
 });
 
-
-
 loadCategory("Recommended")
+
+function startTimer() {
+    const savedUser = localStorage.getItem('userSchoolInfo');
+    if (!savedUser) return;
+
+    const schoolData = JSON.parse(savedUser);
+
+    activityTimer = setInterval(() => {
+        if (document.hidden) {
+            console.log("Tab hidden. Timer paused.");
+            return;
+        }
+        
+        console.log("Sending 60s of support to " + schoolData.school);
+        fetch(`${url}?action=logTime&school=${encodeURIComponent(schoolData.school)}&city=${encodeURIComponent(schoolData.city)}&state=${encodeURIComponent(schoolData.state)}&seconds=60`, {
+            method: 'GET',
+            mode: 'no-cors' 
+        })
+        .then(() => {
+            console.log("60s contributed!");
+        });
+        
+    }, 60000);
+} 
+
