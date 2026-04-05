@@ -7,35 +7,35 @@ body {
   overflow-y: auto;
 }
 
-  iframe {
-    display: none;
-    position: fixed;
-    top: 0; left: 0;
-    width: 100vw;
-    height: 100vh;
-    border: none;
-    z-index: 20;
-    background: #000;
-  }
+iframe {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  border: none;
+  z-index: 20;
+  background: #000;
+}
 
-  /* Back button - quarter circle in top-left corner, no arrow */
-  #backBtn {
-    position: fixed;
-    top: -20px;
-    left: -20px;
-    width: 60px;
-    height: 60px;
-    background: rgba(255 255 255 / 0.15);
-    border-radius: 0 0 100% 0;
-    cursor: pointer;
-    z-index: 30;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-    transition: background-color 0.3s ease;
-    display: none; /* hidden by default */
-  }
-  #backBtn:hover {
-    background: rgba(255 255 255 / 0.35);
-  }
+#backBtn {
+  position: fixed;
+  top: -20px;
+  left: -20px;
+  width: 60px;
+  height: 60px;
+  background: rgba(255 255 255 / 0.15);
+  border-radius: 0 0 100% 0;
+  cursor: pointer;
+  z-index: 30;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  transition: background-color 0.3s ease;
+  display: none; /* hidden by default */
+}
+
+#backBtn:hover {
+  background: rgba(255 255 255 / 0.35);
+}
 
 
 .container{
@@ -125,16 +125,29 @@ body {
 h1 {color:white; margin-left: 100px;} */
 
 .leaderboard-corner img {
-  position: fixed;
+  position: absolute;
   top: 20px;
   right: 30px;
-  width: 80px;
+  width: 105px;
   height: auto;
+
   transition: all 0.1s ease;
   outline: 5px inset orange;
   border-radius: 15px;
+  
+  padding: 5px
 }
 
+
 .leaderboard-corner img:hover {
-  transform: scale(1.05) ;
+  transform: scale(0.95) ;
+}
+
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.6; }
+}
+.animate-pulse {
+  animation: pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }

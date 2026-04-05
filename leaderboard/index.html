@@ -19,7 +19,22 @@
                 <div class="w-20 tr">Points</div>
             </div>
             <div id="leaderboard-body">
+                <div class="skeleton-row mb2 br3 bg-white-05 pa3 flex items-center animate-pulse">
+                    <div class="w-20 bg-white-10 h1 br-pill"></div>
+                    <div class="w-60 mh3 bg-white-10 h1 br-pill"></div>
+                    <div class="w-20 bg-white-10 h1 br-pill"></div>
                 </div>
+                <div class="skeleton-row mb2 br3 bg-white-05 pa3 flex items-center animate-pulse" style="opacity: 0.6;">
+                    <div class="w-20 bg-white-10 h1 br-pill"></div>
+                    <div class="w-60 mh3 bg-white-10 h1 br-pill"></div>
+                    <div class="w-20 bg-white-10 h1 br-pill"></div>
+                </div>
+                <div class="skeleton-row mb2 br3 bg-white-05 pa3 flex items-center animate-pulse" style="opacity: 0.6;">
+                    <div class="w-20 bg-white-10 h1 br-pill"></div>
+                    <div class="w-60 mh3 bg-white-10 h1 br-pill"></div>
+                    <div class="w-20 bg-white-10 h1 br-pill"></div>
+                </div>
+            </div>
             <a href="/" class="mt4 link dim br-pill ph4 pv3 mb2 dib white bg-orange b ttu">← Back to Home</a>
     </div>
 
@@ -28,13 +43,23 @@
     </button>
 
     <div id="userSchoolDisplay" class="dn mw6 w-100 mt5 pa3 br3 bg-white-10 ba b--white-20 shadow-4 center">
-        <p class="f7 ttu tracked orange b mb2 mt0">Your  School</p>
-        <div class="flex justify-between items-center">
-            <span id="displaySchoolName" class="f4 b white">---</span>
-            <div class="tr">
-                <span id="displaySchoolPoints" class="f4 orange b db">0</span>
-                <span class="f7 silver ttu tracked">Points</span>
+        <div class="flex items-center justify-between tc">
+        
+            <div class="w-25 flex flex-column items-center">
+                <span id="displaySchoolRank" class="f3 b orange">#--</span>
+                <span class="f7 silver ttu tracked mt1" style="font-size: 0.6rem;">Rank</span>
             </div>
+
+            <div class="w-50 flex flex-column items-center">
+                <span id="displaySchoolName" class="f4 white lh-title">---</span>
+                <span class="f7 silver ttu tracked mt1" style="font-size: 0.6rem;">Your School</span>
+            </div>
+
+            <div class="w-25 flex flex-column items-center">
+                <span id="displaySchoolPoints" class="f3 b orange">0</span>
+                <span class="f7 silver ttu tracked mt1" style="font-size: 0.6rem;">Points</span>
+            </div>
+
         </div>
     </div>
 

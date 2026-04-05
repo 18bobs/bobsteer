@@ -1,7 +1,6 @@
 const LEADERBOARD_REFRESH = 30000;
 
 $(document).ready(function() {
-    updateYourSchoolDisplay([]);
     loadLeaderboard();
 
     $('#stateSelect').select2({ placeholder: "Search for a State..." });
@@ -57,12 +56,21 @@ async function fetchCities() {
     citySelect.empty().append('<option>Loading cities...</option>');
 
     try {
-        const response = await fetch(`${script}?action=getCities&state=${encodeURIComponent(stateSelect)}`);
-        const cities = await response.json();
+        console.log("sending request for cities " + (new Date().getTime() % 10000));
+        const response = await import(`/schools/${stateSelect}.js`);
+        stateData = await response.getStateSchools();
+        console.log("response received " + (new Date().getTime() % 10000));
+
+
+        let citySet = new Set();
+        stateData.forEach(item => {
+            citySet.add(item.city)
+        })
+        const sortedCities = Array.from(citySet).sort();
 
         citySelect.empty().append('<option value="">Search for a City...</option>');
 
-        cities.forEach(city => {
+        sortedCities.forEach(city => {
             citySelect.append(new Option(city, city));
         });
         citySelect.trigger('change');
@@ -79,26 +87,23 @@ async function fetchSchools() {
     const citySelect = $('#citySelect').val();
     const schoolSelect = $('#schoolSelect')
 
-    schoolSelect.empty().append('<option>Loading schools...</option>')
+    if (!citySelect || stateData.length === 0) return;
 
-    try {
-        const response = await fetch(`${script}?action=getSchools&state=${encodeURIComponent(stateSelect)}&city=${encodeURIComponent(citySelect)}`);
-        const schools = await response.json();
+    const schoolsInCity = stateData
+    .filter(item => item.city === citySelect)
+    .map(item => item.school)
+    .sort();
 
-        schoolSelect.empty().append('<option value="">Search for a school...</option>');
+    schoolSelect.empty().append('<option value="">Search for a school...</option>');
 
-        schools.forEach(school => {
-            schoolSelect.append(new Option(school, school));
-        })
-        schoolSelect.trigger('change');
-        schoolSelect.prop('disabled', false);
-    } catch(error) {
-        console.error("Fetch failed:" + error)
-        schoolSelect.empty().append('<option>Error loading cities</option>')
-    }
+    schoolsInCity.forEach(school => {
+        schoolSelect.append(new Option(school, school));
+    })
+    schoolSelect.trigger('change');
+    schoolSelect.prop('disabled', false);
 }
 
-$(document).on('click', '#submitSchool', function(e) {
+$(document).on('click', '#submitSchool', async function(e) {
     e.preventDefault(); 
 
     const finalState = $('#stateSelect').val();
@@ -120,9 +125,13 @@ $(document).on('click', '#submitSchool', function(e) {
     
     localStorage.setItem('userSchoolInfo', JSON.stringify(userData));
 
-    $('#schoolModal').hide(); 
-    updateYourSchoolDisplay();
+    $('#displaySchoolName').text(finalSchool);
+    $('#displaySchoolRank').text("⏳");
+    $('#displaySchoolPoints').text("⏳");
+    $('#userSchoolDisplay').removeClass('dn').show();
+    $('#schoolModal').hide();
 
+    await loadLeaderboard();
 });
 
 async function loadLeaderboard() {
@@ -133,13 +142,14 @@ async function loadLeaderboard() {
         return;
     }
 
-    // leaderboardBody.innerHTML = "<div class='white tc pa3 f6'>Loading leaderboard...</div>";
     try {
         const response = await fetch(`${url}?action=getLeaderboard`);
         const data = await response.json();
         leaderboardBody.innerHTML = ""; 
-
+        
         data.forEach((school, index) => {
+            if (index >= 5) return; 
+
             const rank = index + 1;
             let rankDisplay = rank;
             let rowClass = "bg-white-05 ba b--white-10";
@@ -157,13 +167,28 @@ async function loadLeaderboard() {
                 rankDisplay = `${rank}th`;
                 textClass = "white";
             }
+            console.log(school);
+            console.log(school.location);
+
             const row = `
                 <div class="flex flex-row items-center w-100 pa3 mb2 br3 grow ${rowClass}" ${rank === 1 ? style : ''}>
                     <div class="w-20 tc f4 silver">${rankDisplay}</div>
-                    <div class="w-60 f5 ${rank === 1 ? 'orange' : 'white'}">${school.name}</div>
-                    <div class="w-20 tr f5 ${rank === 1 ? 'b orange' : 'white'}">${school.seconds.toLocaleString()}</div>
+                    
+                    <div class="w-60 flex flex-column items-center tc">
+                        <div class="f5  ${rank === 1 ? 'orange b' : 'white'} mb1">
+                            ${school.name}
+                        </div>
+                        <div class="f7 silver ttu tracked" style="font-size: 0.55rem; opacity: 0.8;">
+                            ${school.location}
+                        </div>
+                    </div>
+                    
+                    <div class="w-20 tr f5 ${rank === 1 ? 'orange' : 'white'}">
+                        ${school.seconds.toLocaleString()}
+                    </div>
                 </div>
             `;
+
             leaderboardBody.innerHTML += row;
         });
         console.log("Loaded leaderboard")
@@ -188,8 +213,10 @@ function updateYourSchoolDisplay(leaderboardData = []) {
         const schoolInList = (leaderboardData || []).find(s => s.name === userData.school);
         
         if (schoolInList) {
+            $('#displaySchoolRank').text(`#${schoolInList.rank}`);
             $('#displaySchoolPoints').text(schoolInList.seconds.toLocaleString());
         } else {
+            $('#displaySchoolRank').text("N/A");
             $('#displaySchoolPoints').text("0");
         }
         
