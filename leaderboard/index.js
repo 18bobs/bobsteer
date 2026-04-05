@@ -137,6 +137,11 @@ $(document).on('click', '#submitSchool', async function(e) {
 async function loadLeaderboard() {
     const leaderboardBody = document.getElementById('leaderboard-body');
 
+    if (document.hidden) {
+    console.log("Tab hidden. Leaderboard paused.");
+    return;
+    }
+
     if (!leaderboardBody) {
         console.error("Target div 'leaderboard-body' not found in HTML");
         return;
