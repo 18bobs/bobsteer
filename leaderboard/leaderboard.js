@@ -2,7 +2,7 @@ const LEADERBOARD_REFRESH = 30000;
 
 $(document).ready(function() {
     loadLeaderboard();
-
+    
     $('#stateSelect').select2({ placeholder: "Search for a State..." });
     $('#citySelect').select2({ placeholder: "Search for a City..." });
     $('#schoolSelect').select2({ placeholder: "Search for a School..." });
@@ -25,18 +25,16 @@ $(document).ready(function() {
 
         $('#schoolModal').removeClass('dn').show();
     });
+    
     populateStates();
-
 });
 
 let schools = [];
 const states = ["Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut","Delaware","Florida","Georgia","Hawaii","Idaho","Illinois","Indiana","Iowa","Kansas","Kentucky","Louisiana","Maine","Maryland","Massachusetts","Michigan","Minnesota","Mississippi","Missouri","Montana","Nebraska","Nevada","New Hampshire","New Jersey","New Mexico","New York","North Carolina","North Dakota","Ohio","Oklahoma","Oregon","Pennsylvania","Rhode Island","South Carolina","South Dakota","Tennessee","Texas","Utah","Vermont","Virginia","Washington","West Virginia","Wisconsin","Wyoming"];
-const script = "https://script.google.com/macros/s/AKfycbwYlrgMp2qSG6DwVPGhHrN0ityn7-nvMtda3ZvVeJNJH6UVjBGQ5e19WyJ808VMEKupNg/exec"
 const url = "https://script.google.com/macros/s/AKfycbz9iZOxW_LUhyWiWalrqMnVYC0UGj9PEqaYl_BLeHON7GPmMhDa4e_aL-Kbsv6fO9iPXw/exec"
 
 function populateStates() {
     const stateSelect = $('#stateSelect')
-    // stateSelect.innerHTML = '<option value="">Choose a State...</option>';
 
     states.forEach(state => {
         const opt = document.createElement('option');
@@ -223,7 +221,7 @@ function updateYourSchoolDisplay(leaderboardData = []) {
             $('#displaySchoolPoints').text("0");
         }
         displayDiv.removeClass('dn').fadeIn();
-        
+
     } else {
         $('#displaySchoolRank').text("N/A");
         $('#displaySchoolPoints').text("N/A");
