@@ -222,14 +222,19 @@ function updateYourSchoolDisplay(leaderboardData = []) {
             $('#displaySchoolRank').text("N/A");
             $('#displaySchoolPoints').text("0");
         }
-        
         displayDiv.removeClass('dn').fadeIn();
+        
     } else {
-        displayDiv.addClass('dn');
+        $('#displaySchoolRank').text("N/A");
+        $('#displaySchoolPoints').text("N/A");
+        $('#displaySchoolName').text("N/A");
+        displayDiv.removeClass('dn').fadeIn();
+
     }
 }
 
 $(document).on('click', '#closeModal', function() {
     $('#schoolModal').addClass('dn').hide();
     updateYourSchoolDisplay();
+    
 });

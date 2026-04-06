@@ -43,7 +43,6 @@ function closeGame() {
 function loadCategory(name) {
   removeAllChildren(gameContainer);
 
-  // update state of category buttons
   var categoryButtonsContainer = document.getElementById("category-buttons");
   
   for (const child of categoryButtonsContainer.children) {
@@ -56,8 +55,6 @@ function loadCategory(name) {
     }
   }
   
-
-  // create the divs for individual games
   for (const game of gameData) {
 
     if (name != 'All') {
