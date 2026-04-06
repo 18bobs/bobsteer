@@ -172,8 +172,6 @@ async function loadLeaderboard() {
                 rankDisplay = `${rank}th`;
                 textClass = "white";
             }
-            console.log(school);
-            console.log(school.location);
 
             const row = `
                 <div class="flex flex-row items-center w-100 pa3 mb2 br3 grow ${rowClass}" ${rank === 1 ? style : ''}>
@@ -189,7 +187,7 @@ async function loadLeaderboard() {
                     </div>
                     
                     <div class="w-20 tr f5 ${rank === 1 ? 'orange' : 'white'}">
-                        ${school.seconds.toLocaleString()}
+                        ${school.minutes.toLocaleString()}
                     </div>
                 </div>
             `;
@@ -219,7 +217,7 @@ function updateYourSchoolDisplay(leaderboardData = []) {
         
         if (schoolInList) {
             $('#displaySchoolRank').text(`#${schoolInList.rank}`);
-            $('#displaySchoolPoints').text(schoolInList.seconds.toLocaleString());
+            $('#displaySchoolPoints').text(schoolInList.minutes.toLocaleString());
         } else {
             $('#displaySchoolRank').text("N/A");
             $('#displaySchoolPoints').text("0");

@@ -153,13 +153,13 @@ function startTimer() {
             return;
         }
         
-        console.log("Sending 60s of support to " + schoolData.school);
-        fetch(`${url}?action=logTime&school=${encodeURIComponent(schoolData.school)}&city=${encodeURIComponent(schoolData.city)}&state=${encodeURIComponent(schoolData.state)}&seconds=60`, {
+        console.log("Sending 1m to " + schoolData.school);
+        fetch(`${url}?action=logTime&school=${encodeURIComponent(schoolData.school)}&city=${encodeURIComponent(schoolData.city)}&state=${encodeURIComponent(schoolData.state)}&minutes=1`, {
             method: 'GET',
             mode: 'no-cors' 
         })
         .then(() => {
-            console.log("60s contributed!");
+            console.log("1m contributed!");
         });
         
     }, 60000);

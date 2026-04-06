@@ -85,6 +85,12 @@ const gameData = [
     "tags": ["Recommended"]
   },
   {
+    "title": "Revolution Idle",
+    "cover": "https://play-lh.googleusercontent.com/3lnCi0pIVH1Czdim7kAkweJcClqqzVnTpGtOX2jY-AxemDjELlMr7ttrNgyeWSzVRavc",
+    "path": "./html/revolution-idle.html",
+    "tags": ["Simulation"]
+  },
+  {
     "title": "Rocket Goal",
     "cover": "https://play-lh.googleusercontent.com/xYmXleDWgPjObguVDhC-hpcC8a5yP7399awTpyPdsxIzgV52VQEAndSZ9M4WhOXQQcBs248yuB_IMUKrWz061w=w600-h300-pc0xffffff-pd",
     "path": "./html/rocket-goal.html",
