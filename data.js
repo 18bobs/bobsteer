@@ -35,7 +35,12 @@ const gameData = [
     "path": "./html/steal-a-brainrot.html",
     "tags": ["Recommended"]
   },
-
+  {
+    "title": "99 Nights in the Forest",
+    "cover": "https://tr.rbxcdn.com/180DAY-643b9b9285f3bd9b63cf392db12a4d87/768/432/Image/Webp/noFilter",
+    "path": "./games/99-nights-in-the-forest.html",
+    "tags": ["Recommended","Horror"]
+  },
   {
     "title": "Duck Life",
     "cover": "https://play-lh.googleusercontent.com/vtJKdZwiBoQ0m0QVBvCj6oFBEVCehcPktS58KspbJeQdHOfcpAuGu4eWET97KQMH7M0UChLFxMoaErlpq4isSkE",
@@ -88,7 +93,7 @@ const gameData = [
     "title": "Revolution Idle",
     "cover": "https://play-lh.googleusercontent.com/3lnCi0pIVH1Czdim7kAkweJcClqqzVnTpGtOX2jY-AxemDjELlMr7ttrNgyeWSzVRavc",
     "path": "./html/revolution-idle.html",
-    "tags": ["Simulation"]
+    "tags": ["Recommended","Simulation"]
   },
   {
     "title": "Rocket Goal",
@@ -193,6 +198,12 @@ const gameData = [
     "tags": ["Arcade"]
   },
   {
+    "title": "Adventure Capitalist",
+    "cover": "https://play-lh.googleusercontent.com/yAKZV2kx81ojqMmNzXVRQQuaDXpqYoK7ZHLWRHy03HrCnQ5p6W5HaK9tQwcEjzvms0I",
+    "path": "./html/adventure-capitalist.html",
+    "tags": ["Recommended","Simulation"]
+  },
+  {
     "title": "Subway Surfers: Iceland",
     "cover": "./cover/subway-surfers-iceland.png",
     "path": "./html/subway-surfers-iceland.html",
@@ -205,7 +216,7 @@ const gameData = [
     "tags": ["Arcade"]
   },
   {
-    "title": "Hill Climb Racing Lite",
+    "title": "Hill Climb Racing",
     "cover": "./cover/hcr-lite-1.0.png",
     "path": "./html/hcr-lite-1.0.html",
     "tags": ["Racing"]
