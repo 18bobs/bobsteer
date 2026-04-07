@@ -139,9 +139,21 @@ const gameData = [
   },
   {
     "title": "Temple Run 2",
-    "cover": "./cover/temple-run-2.png",
+    "cover": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTij6Pah1NQfUEony7XGnsW4axyoImq5jk0jg&s",
     "path": "./html/temple-run-2.html",
     "tags": ["Endless"]
+  },
+  {
+    "title": "Space Waves",
+    "cover": "https://i.ytimg.com/vi/0L885f9nUI8/maxresdefault.jpg",
+    "path": "./html/space-waves.html",
+    "tags": ["Recommended","Endless"]
+  },
+  {
+    "title": "Konkr.io",
+    "cover": "https://img.itch.zone/aW1nLzk3MzAzMTgucG5n/508x254%23mb/lTeBRu.png",
+    "path": "./html/konkr-io.html",
+    "tags": ["Recommended","Arcade"]
   },
   {
     "title": "Ninja vs EVILCORP",
@@ -150,10 +162,22 @@ const gameData = [
     "tags": ["Arcade"]
   },
   {
+    "title": "KOUR.io",
+    "cover": "https://cpsgames.org/thumbs/kour-io-smallthumb_new.webp",
+    "path": "./html/kour-io.html",
+    "tags": ["Recommended"]
+  },
+  {
     "title": "Paper.io 2",
     "cover": "./cover/paper.io-2.png",
     "path": "./html/paper.io-2.html",
     "tags": ["Arcade"]
+  },
+  {
+    "title": "Smash Karts",
+    "cover": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAdrpTBNT0iI8zuPF0NX0z6t9fJtigQpEhsQ&s",
+    "path": "./games/smash-karts.html",
+    "tags": ["Recommended"]
   },
   {
     "title": "Tiny Fishing",
