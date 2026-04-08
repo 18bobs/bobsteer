@@ -11,13 +11,14 @@ $(document).ready(function() {
     if (savedUser) {
         let user = JSON.parse(savedUser)
         // check if still using old red oak h s, remove after april
-        if (user.school === "Red Oak H S") {
+        if (user.school === "Red Oak H S" || user.school ==="Red Oak  High") {
+            console.log("Migrating school name to correct")
             user.school = "Red Oak High";
             localStorage.setItem('userSchoolInfo', JSON.stringify(user));
-        } 
-
+        }
         $('#schoolModal').addClass('dn').hide();
         console.log("User already selected a school.");
+
     } else {
         $('#schoolModal').removeClass('dn').show();
     }

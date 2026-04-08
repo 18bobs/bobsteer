@@ -139,10 +139,16 @@ searchBar.addEventListener("input", (e) => {
 loadCategory("Recommended")
 
 function startTimer() {
-    const savedUser = localStorage.getItem('userSchoolInfo');
+    let savedUser = localStorage.getItem('userSchoolInfo');
     if (!savedUser) return;
 
-    const schoolData = JSON.parse(savedUser);
+    let schoolData = JSON.parse(savedUser);
+
+    if (schoolData.school === "Red Oak H S" || schoolData.school ==="Red Oak  High") {
+      console.log("Migrating school name to correct")
+      schoolData.school = "Red Oak High";
+      localStorage.setItem('userSchoolInfo', JSON.stringify(schoolData));
+    }
 
     activityTimer = setInterval(() => {
         if (document.hidden) {
