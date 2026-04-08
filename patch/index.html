@@ -39,7 +39,7 @@
         async function loadPatches() {
             const container = document.getElementById('patch-container');
             try {
-                const response = await fetch('patches.json');
+                const response = await fetch('/patch/patches.json');
                 const patches = await response.json();
                 
                 container.innerHTML = ''; 
