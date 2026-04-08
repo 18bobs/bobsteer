@@ -1,0 +1,63 @@
+[
+  {
+    "version": "v2.2.1",
+    "date": "April 08, 2026",
+    "title": "The 'Footer & Foundation' Update",
+    "description": "Redesigned footer organization  and added foundation pages.",
+    "changes": [
+        ["UI", "Redesigned footer to 4-column layout."],
+        ["Nav", "Added dedicated 'About Us' and 'Patch Notes' pages."]
+    ],
+    "isCurrent": true
+  },
+  {
+    "version": "v2.2.0",
+    "date": "April 06, 2026",
+    "title": "The Navigation and Legal Update",
+    "description": "Added footer and legal pages for easier site navigation.",
+    "changes": [
+        ["UI", "Implemented footer for easier site maneuverability"],
+        ["Nav","Added 'Terms of Use' and 'Privacy Policy' pages"]
+        
+    ],
+    "isCurrent": false
+  }, 
+  {
+    "version": "v2.1.0",
+    "date": "April 05, 2026",
+    "title": "The Leaderboard Expansion",
+    "description": "Introduced the nation-wide leaderboard system with school-specific playtime gathering.",
+    "changes": [
+        ["Launch", "Full release of the school leaderboard UI"],
+        ["Integration","Connected all apps to the playtime tracker"]
+        
+    ],
+    "isCurrent": false
+  },
+  {
+    "version": "v2.0.0",
+    "date": "January 03, 2026",
+    "title": "Identity and Navigation",
+    "description": "Complete overhaul of Bobmath's visual design, introducing app-layout in the iconic grid structure",
+    "changes": [
+        ["Design", "Rebuilt UI from scratch to support the growing library of games"],
+        ["UX", "Implemented category buttons to allow users to find apps faster"],
+        ["Brand", "Standardized the Bobmath black and orange color scheme"]
+        
+    ],
+    "isCurrent": false
+  },
+  {
+    "version": "v1.0.0",
+    "date": "October 01, 2025",
+    "title": "Beginning of Bobmath",
+    "description": "The official launch of Bobmath.",
+    "changes": [
+        ["Release", "Initial launch of browser-based app collection."],
+        ["Design", "Established the dark mode interface."],
+        ["Engine","Optimized app scripts for Chromebook compatibility"]
+
+    ],
+    "isCurrent": false
+  }
+]

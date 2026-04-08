@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patch Notes</title>
+    <link rel="stylesheet" href="https://unpkg.com/tachyons@4.12.0/css/tachyons.min.css" />
+    <style>
+        body { background-color: #0a0a0a; color: #fff; }
+        .patch-card {
+            border-left: 3px solid #ff6300;
+            background: #111;
+        }
+        .version-badge {
+            background-color: #ff6300;
+            color: #fff;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+        .date-text { color: #666; font-size: 0.9rem; }
+        a { transition: color 0.2s; }
+    </style>
+</head>
+<body>
+<body class="sans-serif">
+
+    <header class="tc pv5 ph3">
+        <h1 class="f1 fw6 ttu tracked orange mb2 mt0">Patch Notes</h1>
+        <p class="f4 fw2 white-60 mt0 measure center">From Then to Now</p>
+    </header>
+
+    <main id="patch-container" class="mw7 center ph3 pb5">
+        <div class="tc pv4 silver">Loading updates...</div>
+    </main>
+
+    <script>
+        async function loadPatches() {
+            const container = document.getElementById('patch-container');
+            try {
+                const response = await fetch('patches.json');
+                const patches = await response.json();
+                
+                container.innerHTML = ''; 
+
+                patches.forEach(patch => {
+                    const card = document.createElement('article');
+                    card.className = patch.isCurrent ? 'patch-card pa4 br3 mb5 shadow-5' : 'old-patch pa4 br3 mb5';
+                    
+                    const changeList = patch.changes.map(c => 
+                        `<li class="mb2"><span class="orange b">${c[0]}:</span> ${c[1]}</li>`
+                    ).join('');
+
+                    card.innerHTML = `
+                        <div class="flex items-center mb3">
+                            <span class="${patch.isCurrent ? 'version-badge' : 'bg-white-10 white-60 pv1 ph3 br-pill f7'} mr3">${patch.version}</span>
+                            <span class="date-text">${patch.date}</span>
+                        </div>
+                        <h2 class="${patch.isCurrent ? 'f3' : 'f4'} fw6 white mt0 mb3">${patch.title}</h2>
+                        <p class="f6 lh-copy white-70 mb4">${patch.description}</p>
+                        <ul class="list pl0 f6 lh-copy white-80">${changeList}</ul>
+                    `;
+                    container.appendChild(card);
+                });
+            } catch (e) {
+                container.innerHTML = '<div class="tc orange">Error loading patch notes.</div>';
+            }
+        }
+        loadPatches();
+
+    </script>
+    <footer class="bg-near-black white-80 pt4 pb6 ph6 bt b--white-10 sans-serif">
+        <div class="mw9 center flex flex-wrap justify-between">
+
+            <div class="w-100 w-25-l mb5 mb0-l pr4-l">
+                <h3 class="f2 mb2 white">Bobmath</h3>
+                <p class="f6 fw2 lh-copy measure white-80">
+                Bobmath boasts the ultimate collection of interactive apps, available to play in-browser with no download required. 
+                With our new school leaderboard, you can track your playtime and compete with others to see who can rise to the top.
+                </p>
+                <p class="f6">Contact: <span class="orange">bobmathorg@gmail.com</span></p>
+            </div>
+            
+            <div class="w-100 w-25-l mb5 mb0-l ph0 ph5-l">
+                <h4 class="f5 white mb3">Pages</h4>
+                <ul class="list pl0 f5 lh-copy white-70">
+                    <li class="db mb3"><a href="/" class="no-underline dim white-60">🏡 Home</a></li>
+                    <li class="db mb3"><a href="/about" class="no-underline dim white-60">ℹ️ About Us</a></li>
+                    <li class="db mb3"><a href="/patch" class="no-underline dim white-60">🛠️ Patch Notes</a></li>
+                </ul>
+            </div>
+
+            <div class="w-100 w-25-l">
+                <h4 class="f5 white mb3">Modules</h4>
+                <ul class="list pl0 f5 lh-copy white-70">
+                    <li class="db mb3"><a href="/leaderboard" class="no-underline dim white-60">🏆 Leaderboard</a></li>
+                    <li class="db mb3 white-60">✨ More coming soon...</a></li>
+
+                </ul>
+            </div>
+            
+            <div class="w-100 w-25-l">
+                <h4 class="f5 white mb3">Legal</h4>
+                <ul class="list pl0 f5 lh-copy white-70">
+                    <li class="db mb3"><a href="/privacy" class="no-underline dim white-60">🔒 Privacy Policy</a></li>
+                    <li class="db mb3"><a href="/terms" class="no-underline dim white-60">📜 Terms of Service</a></li>
+                </ul>
+            </div>
+
+        </div>
+  </footer>
+
+  <footer class="bg-black white-80 pt2 pb2 ph3 bt b--white-10 sans serif">
+    <p class = "f6 mw9 center flex flex-wrap justify-center white-60 sans-serif" >© 2026 Bobmath. All rights reserved.</p>
+  </footer>
+</body>
+</html>

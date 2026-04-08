@@ -1,6 +1,9 @@
 const LEADERBOARD_REFRESH = 30000;
 
 $(document).ready(function() {
+    const displayDiv = $('#userSchoolDisplay');
+    displayDiv.removeClass('dn').fadeIn();
+
     loadLeaderboard();
     
     $('#stateSelect').select2({ placeholder: "Search for a State..." });
