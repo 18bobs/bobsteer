@@ -1,4 +1,8 @@
-const gameData = [
+import json
+import re
+
+# 1. Paste your current list here
+game_data = [
   {
     "title": "Minecraft 1.8.8",
     "cover": "./cover/minecraft-1.8.8.png",
@@ -7,7 +11,7 @@ const gameData = [
   },
   {
     "title": "Survival Race",
-    "cover": "./cover/survival-race.png",
+    "cover": "https://countryballsgame.com/wp-content/uploads/2025/07/survival-race-320x320.png",
     "path": "./html/survival-race.html",
     "tags": ["Recommended"]
   },
@@ -19,9 +23,9 @@ const gameData = [
   },
   {
     "title": "Polytrack",
-    "cover": "./cover/polytrack.png",
+    "cover": "https://pizzaedition.win/apnggames/polytrack.png",
     "path": "./games/polytrack.html",
-    "tags": ["Recommended", "Racing"]
+    "tags": ["Recommended","Racing"]
   },
   {
     "title": "Knights Arena",
@@ -31,129 +35,129 @@ const gameData = [
   },
   {
     "title": "Steal a Brainrot",
-    "cover": "./cover/steal-a-brainrot.png",
+    "cover": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcHS0A5wF6PeVrj1ouXtmtyDd8TZyauyV-mQ&s",
     "path": "./html/steal-a-brainrot.html",
     "tags": ["Recommended"]
   },
   {
     "title": "99 Nights in the Forest",
-    "cover": "./cover/99-nights-in-the-forest.png",
+    "cover": "https://tr.rbxcdn.com/180DAY-643b9b9285f3bd9b63cf392db12a4d87/768/432/Image/Webp/noFilter",
     "path": "./games/99-nights-in-the-forest.html",
-    "tags": ["Recommended", "Horror"]
+    "tags": ["Recommended","Horror"]
   },
   {
     "title": "Duck Life",
-    "cover": "./cover/duck-life.png",
+    "cover": "https://play-lh.googleusercontent.com/vtJKdZwiBoQ0m0QVBvCj6oFBEVCehcPktS58KspbJeQdHOfcpAuGu4eWET97KQMH7M0UChLFxMoaErlpq4isSkE",
     "path": "./games/ducklife.html",
     "tags": ["Simulation"]
   },
   {
     "title": "Duck Life 2",
-    "cover": "./cover/duck-life-2.png",
+    "cover": "https://img.poki-cdn.com/cdn-cgi/image/q=78,scq=50,width=1200,height=1200,fit=cover,f=png/f2431276-8a98-4214-9a88-d0ea91fe0af2/ducklife-2.png",
     "path": "./games/ducklife2.html",
     "tags": ["Simulation"]
   },
   {
     "title": "Duck Life 3",
-    "cover": "./cover/duck-life-3.png",
+    "cover": "https://img.poki-cdn.com/cdn-cgi/image/q=78,scq=50,width=1200,height=1200,fit=cover,f=png/f5671816-e95b-4d41-adb7-411708f431ba/ducklife-3.png",
     "path": "./games/ducklife3.html",
     "tags": ["Simulation"]
   },
   {
     "title": "Duck Life 4",
-    "cover": "./cover/duck-life-4.png",
+    "cover": "https://images.igdb.com/igdb/image/upload/t_cover_big/coald0.webp",
     "path": "./games/ducklife4.html",
     "tags": ["Simulation"]
   },
   {
     "title": "Duck Life 5",
-    "cover": "./cover/duck-life-5.png",
+    "cover": "https://play-lh.googleusercontent.com/JQqSn7wuCj0SxBqpBThNI33qCR9gwY0str2TIAnu-m_xrVCgZk3IPxYK2S7zC9WG0ig",
     "path": "./games/ducklife5.html",
     "tags": ["Simulation"]
   },
   {
     "title": "Duck Life Space",
-    "cover": "./cover/duck-life-space.png",
+    "cover": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxaQe17mH-VqbM7tqqq_pIy8KuHiT2vWjdEtQ1YiNa5-CznoBTNwNHbvLPGSfdw6X9O-s&usqp=CAU",
     "path": "./games/ducklifespace.html",
     "tags": ["Simulation"]
   },
   {
     "title": "Duck Life Battle",
-    "cover": "./cover/duck-life-battle.png",
+    "cover": "https://img.poki-cdn.com/cdn-cgi/image/q=78,scq=50,width=1200,height=1200,fit=cover,f=png/20973cc3-b940-4215-998a-7efc6d747d79/duck-life-battle.png",
     "path": "./games/ducklifebattle.html",
     "tags": ["Simulation"]
   },
   {
     "title": "DUD",
-    "cover": "./cover/dud.png",
+    "cover": "https://img.itch.zone/aW1nLzEzNzE4MzQzLnBuZw==/original/KLbZPd.png",
     "path": "./html/dud.html",
     "tags": ["Recommended"]
   },
   {
     "title": "Revolution Idle",
-    "cover": "./cover/revolution-idle.png",
+    "cover": "https://play-lh.googleusercontent.com/3lnCi0pIVH1Czdim7kAkweJcClqqzVnTpGtOX2jY-AxemDjELlMr7ttrNgyeWSzVRavc",
     "path": "./html/revolution-idle.html",
-    "tags": ["Recommended", "Simulation"]
+    "tags": ["Recommended","Simulation"]
   },
   {
     "title": "Rocket Goal",
-    "cover": "./cover/rocket-goal.png",
+    "cover": "https://play-lh.googleusercontent.com/xYmXleDWgPjObguVDhC-hpcC8a5yP7399awTpyPdsxIzgV52VQEAndSZ9M4WhOXQQcBs248yuB_IMUKrWz061w=w600-h300-pc0xffffff-pd",
     "path": "./html/rocket-goal.html",
     "tags": ["Recommended"]
   },
   {
     "title": "Moto X3M",
-    "cover": "./cover/moto-x3m.png",
+    "cover": "https://imgs.crazygames.com/moto-x3m_1x1/20231122033955/moto-x3m_1x1-cover?format=auto&quality=100&metadata=none&width=1200",
     "path": "./games/motox3m.html",
     "tags": ["Platformers"]
   },
   {
     "title": "Moto X3M 2",
-    "cover": "./cover/moto-x3m-2.png",
+    "cover": "https://a.silvergames.com/j/b/moto-x3m-2.jpg",
     "path": "./games/motox3m2.html",
     "tags": ["Platformers"]
   },
   {
     "title": "Moto X3M 3",
-    "cover": "./cover/moto-x3m-3.png",
+    "cover": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJCEvsEQS-MH1v6mkNOTnkrHDxmecSo3Th6jV32hv3TRlQWyIYSczPeaExAV4U9yHAn03uGw",
     "path": "./games/motox3m3.html",
     "tags": ["Platformers"]
   },
   {
     "title": "Moto X3M Pool Party",
-    "cover": "./cover/moto-x3m-pool-party.png",
+    "cover": "https://img.poki-cdn.com/cdn-cgi/image/q=78,scq=50,width=314,height=314,fit=cover,f=auto/0235b530eec4f17ad60137f6b245a988/moto-x3m-5-pool-party.jpeg",
     "path": "./games/motox3mpoolparty.html",
     "tags": ["Platformers"]
   },
   {
     "title": "Moto X3M Spookyland",
-    "cover": "./cover/moto-x3m-spookyland.png",
+    "cover": "https://img.poki-cdn.com/cdn-cgi/image/quality=78,width=204,height=204,fit=cover,f=auto/3f8a297822df891a1c158576b6461014.png",
     "path": "./games/motox3mspookyland.html",
     "tags": ["Platformers"]
   },
   {
     "title": "Moto X3M Winter",
-    "cover": "./cover/moto-x3m-winter.png",
+    "cover": "https://img.poki-cdn.com/cdn-cgi/image/q=78,scq=50,width=1200,height=1200,fit=cover,f=png/c28eee5a5924e8a70afb2c1490d9b571/moto-x3m-4-winter.jpeg",
     "path": "./games/motox3mwinter.html",
     "tags": ["Platformers"]
   },
   {
     "title": "Temple Run 2",
-    "cover": "./cover/temple-run-2.png",
+    "cover": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTij6Pah1NQfUEony7XGnsW4axyoImq5jk0jg&s",
     "path": "./html/temple-run-2.html",
     "tags": ["Endless"]
   },
   {
     "title": "Space Waves",
-    "cover": "./cover/space-waves.png",
+    "cover": "https://i.ytimg.com/vi/0L885f9nUI8/maxresdefault.jpg",
     "path": "./html/space-waves.html",
-    "tags": ["Recommended", "Endless"]
+    "tags": ["Recommended","Endless"]
   },
   {
     "title": "Konkr.io",
-    "cover": "./cover/konkr-io.png",
+    "cover": "https://img.itch.zone/aW1nLzk3MzAzMTgucG5n/508x254%23mb/lTeBRu.png",
     "path": "./html/konkr-io.html",
-    "tags": ["Recommended", "Arcade"]
+    "tags": ["Recommended","Arcade"]
   },
   {
     "title": "Ninja vs EVILCORP",
@@ -163,7 +167,7 @@ const gameData = [
   },
   {
     "title": "KOUR.io",
-    "cover": "./cover/kour-io.png",
+    "cover": "https://cpsgames.org/thumbs/kour-io-smallthumb_new.webp",
     "path": "./html/kour-io.html",
     "tags": ["Recommended"]
   },
@@ -175,7 +179,7 @@ const gameData = [
   },
   {
     "title": "Smash Karts",
-    "cover": "./cover/smash-karts.png",
+    "cover": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAdrpTBNT0iI8zuPF0NX0z6t9fJtigQpEhsQ&s",
     "path": "./games/smash-karts.html",
     "tags": ["Recommended"]
   },
@@ -193,9 +197,9 @@ const gameData = [
   },
   {
     "title": "Granny",
-    "cover": "./cover/granny.png",
+    "cover": "https://play-lh.googleusercontent.com/yT_LBq_tyKeIDohKDsqN_Qt18jGIPUYIxY2C-1-E2YA9Qd60uZW08pua17qBmIiDPA",
     "path": "./html/granny.html",
-    "tags": ["Recommended", "Horror"]
+    "tags": ["Recommended","Horror"]
   },
   {
     "title": "Granny 2",
@@ -211,7 +215,7 @@ const gameData = [
   },
   {
     "title": "Russian Truck Driver",
-    "cover": "./cover/russian-truck-driver.png",
+    "cover": "https://imgs.crazygames.com/auto-covers/russian-car-driver-zil-130_1x1.png?format=auto&quality=100&metadata=none&width=1200",
     "path": "./html/russian-truck-driver.html",
     "tags": ["Racing"]
   },
@@ -223,9 +227,9 @@ const gameData = [
   },
   {
     "title": "Adventure Capitalist",
-    "cover": "./cover/adventure-capitalist.png",
+    "cover": "https://play-lh.googleusercontent.com/yAKZV2kx81ojqMmNzXVRQQuaDXpqYoK7ZHLWRHy03HrCnQ5p6W5HaK9tQwcEjzvms0I",
     "path": "./html/adventure-capitalist.html",
-    "tags": ["Recommended", "Simulation"]
+    "tags": ["Recommended","Simulation"]
   },
   {
     "title": "Subway Surfers: Iceland",
@@ -349,37 +353,37 @@ const gameData = [
   },
   {
     "title": "Snow Rider 3D",
-    "cover": "./cover/snow-rider-3d.png",
+    "cover": "https://say.games/_next/image?url=https%3A%2F%2Fweb-saystore-backend.sgdn.io%2Fsnwrdrw%2Ficon___akGln0EtUjbj&w=3840&q=75",
     "path": "./games/snowrider3d.html",
     "tags": ["Recommended"]
   },
   {
     "title": "Tanuki Sunset",
-    "cover": "./cover/tanuki-sunset.png",
+    "cover": "https://img.itch.zone/aW1hZ2UvNTAwMDM1LzI1ODY0MjUucG5n/original/UhGuMj.png",
     "path": "./games/tanukisunset.html",
     "tags": ["Recommended"]
   },
   {
     "title": "Karlson",
-    "cover": "./cover/karlson.png",
+    "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1228610/ss_7ace1081d4eb632e7654497a36718b2fad0c3d2e.1920x1080.jpg?t=1649362618",
     "path": "./games/karlson.html",
     "tags": ["Recommended"]
   },
   {
     "title": "Cookie Clicker",
-    "cover": "./cover/cookie-clicker.png",
+    "cover": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8LAMx-QZh1PcM8KQ9T45nc4y2kycq14WAfg&s",
     "path": "./games/cookieclicker.html",
     "tags": ["Recommended"]
   },
   {
     "title": "OvO",
-    "cover": "./cover/ovo.png",
+    "cover": "https://play-lh.googleusercontent.com/v7KwGdPjJGjJjRXn46sck4DwDBdKSeRzGN44CjiXUtKV0jjOi51Bt4wcXud0m-SkXg",
     "path": "./games/ovo.html",
     "tags": ["Recommended"]
   },
   {
     "title": "Level Devil",
-    "cover": "./cover/level-devil.png",
+    "cover": "https://img.poki-cdn.com/cdn-cgi/image/q=78,scq=50,width=204,height=204,fit=cover,f=auto/0c3d1446c6992c2b88a9498de054688b/level-devil.png",
     "path": "./games/leveldevil.html",
     "tags": ["Recommended"]
   },
@@ -589,25 +593,25 @@ const gameData = [
   },
   {
     "title": "Super Mario 64",
-    "cover": "./cover/super-mario-64.png",
+    "cover": "https://assets1.ignimgs.com/2019/05/31/mario-64---button-1559263987447.jpg",
     "path": "./html/super-mario-64.html",
-    "tags": ["Recommended", "Arcade"]
+    "tags": ["Recommended","Arcade"]
   },
   {
     "title": "Learn to Fly",
-    "cover": "./cover/learn-to-fly.png",
+    "cover": "https://www.coolmathgames.com/sites/default/files/LearntoFly_OG-logo.jpg",
     "path": "./games/learntofly.html",
     "tags": ["Simulation"]
   },
   {
     "title": "Learn to Fly 2",
-    "cover": "./cover/learn-to-fly-2.png",
+    "cover": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSimHHgVKugB1yuhwHPH7NseAoAitWmEAWFdQ&s",
     "path": "./games/learntofly2.html",
     "tags": ["Simulation"]
   },
   {
     "title": "Learn to Fly 3",
-    "cover": "./cover/learn-to-fly-3.png",
+    "cover": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2MWknOSFbObzqiAHTsr32Cjn4R_pOtLZida6HbKc7173uKQNvoej1q_47FTfnsmqRNwtbKw",
     "path": "./games/learntofly3.html",
     "tags": ["Simulation"]
   },
@@ -849,7 +853,7 @@ const gameData = [
     "title": "Idle Breakout",
     "cover": "./cover/idle-breakout.png",
     "path": "./html/idle-breakout.html",
-    "tags": ["Recommended", "Arcade"]
+    "tags": ["Recommended","Arcade"]
   },
   {
     "title": "Idle Lumber Inc",
@@ -946,12 +950,6 @@ const gameData = [
     "cover": "./cover/five-nights-at-freddy's-4-halloween.png",
     "path": "./html/five-nights-at-freddy's-4-halloween.html",
     "tags": ["Horror"]
-  },
-  {
-    "title": "Driven Wild!",
-    "cover": "./cover/driven-wild!-\ud83d\ude97\ud83c\udf34.png",
-    "path": "./html/driven-wild!-\ud83d\ude97\ud83c\udf34.html",
-    "tags": ["Racing"]
   },
   {
     "title": "10 Minutes Till Dawn",
@@ -1078,5 +1076,37 @@ const gameData = [
     "cover": "./cover/friday-night-funkin'.png",
     "path": "./html/friday-night-funkin'.html",
     "tags": ["Arcade"]
-  }
-];
+  },
+]
+
+def slugify(text):
+    """Matches the filename format used in the downloader script"""
+    text = text.lower()
+    return re.sub('[^a-z0-9]+', '-', text).strip('-')
+
+print("Generating data_backup.js...")
+
+for game in game_data:
+    cover_url = game.get("cover", "")
+    
+    # Update only the external https links
+    if cover_url.startswith("http"):
+        title = game.get("title", "")
+        new_filename = f"{slugify(title)}.png"
+        game["cover"] = f"./cover/{new_filename}"
+
+# 1. Convert the list to a JSON string with 2-space indentation
+json_str = json.dumps(game_data, indent=2)
+
+# 2. Use regex to find "tags": [ ... ] and collapse it into one line
+def collapse_tags(match):
+    # Removes newlines and extra spaces inside the tags array
+    return re.sub('\n\s*', ' ', match.group(0)).replace('[ ', '[').replace(' ]', ']')
+
+formatted_js = re.sub('"tags":\s*\[[\s\S]*?\]', collapse_tags, json_str)
+
+# 3. Save as a Javascript file
+with open('data_backup.js', 'w', encoding='utf-8') as f:
+    f.write(f"const gameData = {formatted_js};")
+
+print("\nDone! Your 'data_backup.js' is ready with one-line tags.")
