@@ -2,7 +2,7 @@ const gameData = [
   {
     "title": "Minecraft 1.8.8",
     "cover": "./cover/minecraft-1.8.8.png",
-    "path": "./html/minecraft-1.8.8.html",
+    "path": "./games/minecraft.html",
     "tags": ["Recommended"]
   },
   {
@@ -11,12 +11,12 @@ const gameData = [
     "path": "./html/survival-race.html",
     "tags": ["Recommended"]
   },
-  {
-    "title": "Minecraft 1.12.2",
-    "cover": "./cover/minecraft-1.12.2.png",
-    "path": "./html/minecraft-1.12.2.html",
-    "tags": ["Recommended"]
-  },
+  // {
+  //   "title": "Minecraft 1.12.2",
+  //   "cover": "./cover/minecraft-1.12.2.png",
+  //   "path": "./html/minecraft-1.12.2.html",
+  //   "tags": ["Recommended"]
+  // },
   {
     "title": "Polytrack",
     "cover": "./cover/polytrack.png",
@@ -34,6 +34,12 @@ const gameData = [
     "cover": "./cover/steal-a-brainrot.png",
     "path": "./html/steal-a-brainrot.html",
     "tags": ["Recommended"]
+  },
+  {
+    "title": "Jelly Drift",
+    "cover": "./cover/jelly-drift.png",
+    "path": "./html/jelly-drift.html",
+    "tags": ["Recommended","Racing"]
   },
   {
     "title": "99 Nights in the Forest",
